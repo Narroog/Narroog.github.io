@@ -23,6 +23,7 @@ interface RenderComponents {
 }
 
 const headerRegex = new RegExp(/h[1-6]/)
+const assetVersion = "blog-20260516"
 export function pageResources(
   baseDir: FullSlug | RelativeURL,
   staticResources: StaticResources,
@@ -33,13 +34,13 @@ export function pageResources(
   const resources: StaticResources = {
     css: [
       {
-        content: joinSegments(baseDir, "index.css"),
+        content: `${joinSegments(baseDir, "index.css")}?v=${assetVersion}`,
       },
       ...staticResources.css,
     ],
     js: [
       {
-        src: joinSegments(baseDir, "prescript.js"),
+        src: `${joinSegments(baseDir, "prescript.js")}?v=${assetVersion}`,
         loadTime: "beforeDOMReady",
         contentType: "external",
       },
@@ -55,7 +56,7 @@ export function pageResources(
   }
 
   resources.js.push({
-    src: joinSegments(baseDir, "postscript.js"),
+    src: `${joinSegments(baseDir, "postscript.js")}?v=${assetVersion}`,
     loadTime: "afterDOMReady",
     moduleType: "module",
     contentType: "external",

@@ -78,6 +78,8 @@ function setupBlogFilters() {
   if (filters.length === 0 || cards.length === 0) return
 
   filters.forEach((filter) => {
+    if (filter.dataset.blogFilterReady === "true") return
+    filter.dataset.blogFilterReady = "true"
     filter.addEventListener("click", () => {
       const tag = filter.getAttribute("data-tag")
       filters.forEach((button) => button.classList.remove("active"))
@@ -92,6 +94,7 @@ function setupBlogFilters() {
   })
 }
 
+setupBlogFilters()
 document.addEventListener("nav", setupBlogFilters)
 `
 
