@@ -1,5 +1,5 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import { resolveRelative } from "../util/path"
+import { FullSlug, resolveRelative } from "../util/path"
 import { getDate, formatDate } from "./Date"
 
 const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData }: QuartzComponentProps) => {
@@ -32,13 +32,21 @@ const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData }: QuartzComponent
 
       <div class="blog-filter" aria-label="Blog tag filter">
         <span class="filter-label">标签筛选</span>
-        <button class="filter-button active" type="button" data-tag="all">
+        <a
+          class="filter-button active"
+          href={resolveRelative(fileData.slug!, "index" as FullSlug)}
+          data-tag="all"
+        >
           全部
-        </button>
+        </a>
         {tags.map((tag) => (
-          <button class="filter-button" type="button" data-tag={tag}>
+          <a
+            class="filter-button"
+            href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
+            data-tag={tag}
+          >
             #{tag}
-          </button>
+          </a>
         ))}
       </div>
 
@@ -80,7 +88,8 @@ function setupBlogFilters() {
   filters.forEach((filter) => {
     if (filter.dataset.blogFilterReady === "true") return
     filter.dataset.blogFilterReady = "true"
-    filter.addEventListener("click", () => {
+    filter.addEventListener("click", (event) => {
+      event.preventDefault()
       const tag = filter.getAttribute("data-tag")
       filters.forEach((button) => button.classList.remove("active"))
       filter.classList.add("active")
