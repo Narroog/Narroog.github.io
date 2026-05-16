@@ -23,7 +23,7 @@ interface RenderComponents {
 }
 
 const headerRegex = new RegExp(/h[1-6]/)
-const assetVersion = "blog-20260516-spacefix"
+const assetVersion = "blog-20260516-nosidebar"
 export function pageResources(
   baseDir: FullSlug | RelativeURL,
   staticResources: StaticResources,
@@ -242,21 +242,27 @@ export function renderPage(
   const Header = HeaderConstructor()
   const Body = BodyConstructor()
 
-  const LeftComponent = (
-    <div class="left sidebar">
-      {left.map((BodyComponent) => (
-        <BodyComponent {...componentData} />
-      ))}
-    </div>
-  )
+  const LeftComponent =
+    left.length > 0 ? (
+      <div class="left sidebar">
+        {left.map((BodyComponent) => (
+          <BodyComponent {...componentData} />
+        ))}
+      </div>
+    ) : (
+      <></>
+    )
 
-  const RightComponent = (
-    <div class="right sidebar">
-      {right.map((BodyComponent) => (
-        <BodyComponent {...componentData} />
-      ))}
-    </div>
-  )
+  const RightComponent =
+    right.length > 0 ? (
+      <div class="right sidebar">
+        {right.map((BodyComponent) => (
+          <BodyComponent {...componentData} />
+        ))}
+      </div>
+    ) : (
+      <></>
+    )
 
   const lang = componentData.fileData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   const direction = i18n(cfg.locale).direction ?? "ltr"
