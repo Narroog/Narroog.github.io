@@ -25,7 +25,6 @@ const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData }: QuartzComponent
   return (
     <section class="blog-home" aria-labelledby="blog-title">
       <div class="blog-hero">
-        <p class="blog-kicker">Notes and Research</p>
         <h1 id="blog-title">博客文章</h1>
         <p>记录技术探索、研究笔记与生活思考。</p>
       </div>

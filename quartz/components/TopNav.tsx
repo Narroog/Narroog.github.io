@@ -11,7 +11,7 @@ const TopNav: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
   return (
     <nav class="site-nav" aria-label="Primary navigation">
       <a class="site-brand" href={resolveRelative(current, "index" as FullSlug)}>
-        Research Blog
+        Narog's Blog
       </a>
       <div class="site-nav-links">
         {links.map((link) => {

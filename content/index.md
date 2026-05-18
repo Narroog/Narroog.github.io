@@ -1,5 +1,5 @@
 ---
-title: Research Blog
-description: Notes, essays, research traces, and working drafts.
+title: Narog's Blog
+description: 记录技术探索、研究笔记与生活思考。
 draft: false
 ---
