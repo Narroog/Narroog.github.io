@@ -72,12 +72,15 @@ body[data-slug^="02-Posts/"] .page > #quartz-body .center {
 body[data-slug^="02-Posts/"] article {
   font-size: 1.08rem;
   line-height: 1.78;
-  margin: 1.5rem auto 4rem;
-  padding: 2.5rem 3rem;
-  border: 1px solid color-mix(in srgb, var(--blog-border) 24%, white);
+  margin: 1.35rem auto 4rem;
+  padding: 2.75rem 3rem;
+  border: 3px solid color-mix(in srgb, var(--blog-border) 72%, white);
   border-radius: 8px;
-  box-shadow: 0 1rem 2.5rem rgba(47, 78, 125, 0.1);
-  background: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0.32rem 0.32rem 0 var(--blog-page-bg),
+    0.55rem 0.7rem 0 rgba(47, 78, 125, 0.28),
+    0 1.5rem 3rem rgba(47, 78, 125, 0.1);
+  background: white;
 }
 
 body[data-slug^="02-Posts/"] article p,

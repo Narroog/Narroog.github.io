@@ -13,8 +13,6 @@ draft: true
 
 ## 撰写中 (In Progress)
 
-- [ ] [[02-Posts/hello-quartz]]
-
 ## 待发布 (Ready)
 
 - [ ] 检查首页入口和文章 frontmatter
@@ -29,4 +27,3 @@ kanban:settings
 {"kanban-plugin":"board","list-collapse":[false,false,false,false],"show-checkboxes":true,"new-note-folder":"content/01-Ideas","new-note-template":"content/99-Templates/Post Template.md"}
 ```
 %%
-
