@@ -25,6 +25,7 @@ import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import TopNav from "./TopNav"
 import BlogIndex from "./BlogIndex"
+import BackHome from "./BackHome"
 
 export {
   ArticleTitle,
@@ -54,4 +55,5 @@ export {
   ConditionalRender,
   TopNav,
   BlogIndex,
+  BackHome,
 }

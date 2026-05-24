@@ -15,7 +15,7 @@ export const sharedPageComponents: SharedLayout = {
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
     Component.ConditionalRender({
-      component: Component.Breadcrumbs(),
+      component: Component.BackHome(),
       condition: (page) => page.fileData.slug !== "index" && page.fileData.slug !== "about",
     }),
     Component.ConditionalRender({
