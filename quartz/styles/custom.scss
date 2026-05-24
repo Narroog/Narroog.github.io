@@ -3,7 +3,7 @@
 // put your custom CSS here!
 
 :root {
-  --blog-page-bg: #f2f8ff;
+  --blog-page-bg: #f8fbff;
   --blog-border: #486c9f;
   --blog-shadow: #2f4e7d;
   --blog-accent: #1f5ed6;
@@ -63,6 +63,20 @@ body {
 .page > #quartz-body .center > article:empty,
 .page > #quartz-body .center > hr {
   display: none;
+}
+
+body[data-slug^="02-Posts/"] .page > #quartz-body .center {
+  width: min(46rem, calc(100vw - 3rem));
+}
+
+body[data-slug^="02-Posts/"] article {
+  font-size: 1.08rem;
+  line-height: 1.78;
+}
+
+body[data-slug^="02-Posts/"] article p,
+body[data-slug^="02-Posts/"] article li {
+  line-height: 1.78;
 }
 
 .site-nav {
