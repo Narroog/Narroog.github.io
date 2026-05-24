@@ -72,6 +72,12 @@ body[data-slug^="02-Posts/"] .page > #quartz-body .center {
 body[data-slug^="02-Posts/"] article {
   font-size: 1.08rem;
   line-height: 1.78;
+  margin: 1.5rem auto 4rem;
+  padding: 2.5rem 3rem;
+  border: 1px solid color-mix(in srgb, var(--blog-border) 24%, white);
+  border-radius: 8px;
+  box-shadow: 0 1rem 2.5rem rgba(47, 78, 125, 0.1);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 body[data-slug^="02-Posts/"] article p,
@@ -321,5 +327,9 @@ footer {
 
   .blog-filter {
     padding: 1rem;
+  }
+
+  body[data-slug^="02-Posts/"] article {
+    padding: 1.4rem;
   }
 }
