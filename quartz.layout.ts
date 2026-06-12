@@ -16,7 +16,10 @@ export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
     Component.ConditionalRender({
       component: Component.BackHome(),
-      condition: (page) => page.fileData.slug !== "index" && page.fileData.slug !== "about",
+      condition: (page) =>
+        page.fileData.slug !== "index" &&
+        page.fileData.slug !== "about" &&
+        page.fileData.slug !== "profile",
     }),
     Component.ConditionalRender({
       component: Component.BlogIndex(),
@@ -24,15 +27,21 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.ConditionalRender({
       component: Component.ArticleTitle(),
-      condition: (page) => page.fileData.slug !== "index",
+      condition: (page) => page.fileData.slug !== "index" && page.fileData.slug !== "profile",
     }),
     Component.ConditionalRender({
       component: Component.ContentMeta(),
-      condition: (page) => page.fileData.slug !== "index" && page.fileData.slug !== "about",
+      condition: (page) =>
+        page.fileData.slug !== "index" &&
+        page.fileData.slug !== "about" &&
+        page.fileData.slug !== "profile",
     }),
     Component.ConditionalRender({
       component: Component.TagList(),
-      condition: (page) => page.fileData.slug !== "index" && page.fileData.slug !== "about",
+      condition: (page) =>
+        page.fileData.slug !== "index" &&
+        page.fileData.slug !== "about" &&
+        page.fileData.slug !== "profile",
     }),
   ],
   left: [],

@@ -6,6 +6,7 @@ const TopNav: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
   const links = [
     { label: "Blog", slug: "index" as FullSlug },
     { label: "About", slug: "about" as FullSlug },
+    { label: "Profile", slug: "profile" as FullSlug },
   ]
 
   return (

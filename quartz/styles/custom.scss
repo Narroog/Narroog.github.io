@@ -310,6 +310,30 @@ body[data-slug="about"] article {
   background: white;
 }
 
+body[data-slug="profile"] article {
+  max-width: 58rem;
+  margin: 2.5rem auto 4rem;
+  padding: 2.4rem;
+  border: 4px solid var(--blog-border);
+  box-shadow: 0 0.55rem 0 var(--blog-shadow);
+  background: white;
+}
+
+body[data-slug="profile"] article h2 {
+  margin-top: 2.4rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 3px solid color-mix(in srgb, var(--blog-border) 45%, white);
+}
+
+body[data-slug="profile"] article h3 {
+  margin-top: 1.6rem;
+  color: var(--blog-nav-deep);
+}
+
+body[data-slug="profile"] article li {
+  margin: 0.35rem 0;
+}
+
 footer {
   width: min(84rem, calc(100vw - 3rem));
   margin: 1.5rem auto 2rem;
@@ -355,5 +379,9 @@ footer {
 
   body[data-slug^="02-Posts/"] article {
     padding: 1.4rem;
+  }
+
+  body[data-slug="profile"] article {
+    padding: 1.35rem;
   }
 }
