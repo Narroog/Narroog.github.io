@@ -26,6 +26,10 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) => page.fileData.slug === "index",
     }),
     Component.ConditionalRender({
+      component: Component.ProfilePage(),
+      condition: (page) => page.fileData.slug === "profile",
+    }),
+    Component.ConditionalRender({
       component: Component.ArticleTitle(),
       condition: (page) => page.fileData.slug !== "index" && page.fileData.slug !== "profile",
     }),

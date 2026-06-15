@@ -26,6 +26,7 @@ import ConditionalRender from "./ConditionalRender"
 import TopNav from "./TopNav"
 import BlogIndex from "./BlogIndex"
 import BackHome from "./BackHome"
+import ProfilePage from "./ProfilePage"
 
 export {
   ArticleTitle,
@@ -56,4 +57,5 @@ export {
   TopNav,
   BlogIndex,
   BackHome,
+  ProfilePage,
 }

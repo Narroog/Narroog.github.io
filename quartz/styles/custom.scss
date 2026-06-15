@@ -310,14 +310,9 @@ body[data-slug="about"] article {
   background: white;
 }
 
-body[data-slug="profile"] article {
+.profile-page {
   max-width: 68rem;
   margin: 2.5rem auto 4.5rem;
-  padding: 0;
-  background: transparent;
-}
-
-.profile-page {
   display: grid;
   gap: 1.5rem;
 }
@@ -590,6 +585,10 @@ footer {
   }
 
   body[data-slug="profile"] article {
+    margin-top: 1.5rem;
+  }
+
+  .profile-page {
     margin-top: 1.5rem;
   }
 }
