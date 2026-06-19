@@ -18,12 +18,17 @@ export const defaultContentPageLayout: PageLayout = {
       component: Component.BackHome(),
       condition: (page) =>
         page.fileData.slug !== "index" &&
+        page.fileData.slug !== "blog" &&
         page.fileData.slug !== "about" &&
         page.fileData.slug !== "profile",
     }),
     Component.ConditionalRender({
-      component: Component.BlogIndex(),
+      component: Component.HomePage(),
       condition: (page) => page.fileData.slug === "index",
+    }),
+    Component.ConditionalRender({
+      component: Component.BlogIndex(),
+      condition: (page) => page.fileData.slug === "blog",
     }),
     Component.ConditionalRender({
       component: Component.ProfilePage(),
@@ -31,12 +36,16 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.ConditionalRender({
       component: Component.ArticleTitle(),
-      condition: (page) => page.fileData.slug !== "index" && page.fileData.slug !== "profile",
+      condition: (page) =>
+        page.fileData.slug !== "index" &&
+        page.fileData.slug !== "blog" &&
+        page.fileData.slug !== "profile",
     }),
     Component.ConditionalRender({
       component: Component.ContentMeta(),
       condition: (page) =>
         page.fileData.slug !== "index" &&
+        page.fileData.slug !== "blog" &&
         page.fileData.slug !== "about" &&
         page.fileData.slug !== "profile",
     }),
@@ -44,6 +53,7 @@ export const defaultContentPageLayout: PageLayout = {
       component: Component.TagList(),
       condition: (page) =>
         page.fileData.slug !== "index" &&
+        page.fileData.slug !== "blog" &&
         page.fileData.slug !== "about" &&
         page.fileData.slug !== "profile",
     }),

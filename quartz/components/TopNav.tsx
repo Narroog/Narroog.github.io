@@ -4,7 +4,7 @@ import { FullSlug, resolveRelative } from "../util/path"
 const TopNav: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
   const current = fileData.slug ?? ("index" as FullSlug)
   const links = [
-    { label: "Blog", slug: "index" as FullSlug },
+    { label: "Blog", slug: "blog" as FullSlug },
     { label: "About", slug: "about" as FullSlug },
     { label: "Profile", slug: "profile" as FullSlug },
   ]

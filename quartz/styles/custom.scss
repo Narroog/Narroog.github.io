@@ -3,17 +3,20 @@
 // put your custom CSS here!
 
 :root {
-  --blog-page-bg: #f8fbff;
-  --blog-border: #486c9f;
-  --blog-shadow: #2f4e7d;
-  --blog-accent: #1f5ed6;
-  --blog-nav: #1f5ed6;
-  --blog-nav-deep: #164aa9;
-  --blog-purple: #c9b4ff;
-  --blog-purple-dark: #5d3ab4;
+  --blog-page-bg: #f5f5f7;
+  --blog-surface: rgba(255, 255, 255, 0.78);
+  --blog-surface-solid: #ffffff;
+  --blog-border: rgba(0, 0, 0, 0.08);
+  --blog-shadow: rgba(0, 0, 0, 0.1);
+  --blog-accent: #007aff;
+  --blog-nav: #ffffff;
+  --blog-nav-deep: #006ee6;
+  --blog-purple: #edf6ff;
+  --blog-purple-dark: #007aff;
 }
 
 body {
+  font-size: 1.06rem;
   background: var(--blog-page-bg);
 }
 
@@ -70,17 +73,14 @@ body[data-slug^="02-Posts/"] .page > #quartz-body .center {
 }
 
 body[data-slug^="02-Posts/"] article {
-  font-size: 1.08rem;
+  font-size: 1.12rem;
   line-height: 1.78;
   margin: 1.35rem auto 4rem;
   padding: 2.75rem 3rem;
-  border: 3px solid color-mix(in srgb, var(--blog-border) 72%, white);
+  border: 1px solid var(--blog-border);
   border-radius: 8px;
-  box-shadow:
-    0.32rem 0.32rem 0 var(--blog-page-bg),
-    0.55rem 0.7rem 0 rgba(47, 78, 125, 0.28),
-    0 1.5rem 3rem rgba(47, 78, 125, 0.1);
-  background: white;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.07);
+  background: var(--blog-surface-solid);
 }
 
 body[data-slug^="02-Posts/"] article p,
@@ -96,17 +96,18 @@ body[data-slug^="02-Posts/"] article li {
   min-height: 2.5rem;
   margin-bottom: 0.9rem;
   padding: 0 1rem;
-  border: 1px solid color-mix(in srgb, var(--blog-border) 32%, white);
-  border-radius: 8px;
-  box-shadow: 0 0.35rem 1rem rgba(47, 78, 125, 0.08);
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--blog-nav);
-  font-weight: 800;
+  border: 1px solid var(--blog-border);
+  border-radius: 999px;
+  box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.05);
+  background: var(--blog-surface);
+  color: var(--blog-accent);
+  font-weight: 700;
+  backdrop-filter: blur(18px);
 }
 
 .back-home-card:hover {
   color: var(--blog-nav-deep);
-  background: white;
+  background: var(--blog-surface-solid);
 }
 
 .site-nav {
@@ -114,7 +115,7 @@ body[data-slug^="02-Posts/"] article li {
   z-index: 20;
   width: min(84rem, calc(100vw - 3rem));
   margin: 0 auto;
-  min-height: 5rem;
+  min-height: 4.6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -122,18 +123,19 @@ body[data-slug^="02-Posts/"] article li {
 }
 
 header {
+  z-index: 20;
   width: 100vw;
   margin: 0 calc(50% - 50vw);
-  border-bottom: 0;
+  border-bottom: 1px solid var(--blog-border);
   background: var(--blog-nav);
-  box-shadow: 0 0.25rem 0 var(--blog-nav-deep);
+  box-shadow: none;
 }
 
 .site-brand {
   font-family: var(--headerFont);
-  font-size: 1.55rem;
+  font-size: 1.45rem;
   font-weight: 800;
-  color: white;
+  color: var(--dark);
 }
 
 .site-nav-links {
@@ -142,14 +144,14 @@ header {
 }
 
 .site-nav-link {
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 1.05rem;
+  color: var(--darkgray);
+  font-size: 1.08rem;
   font-weight: 700;
 }
 
 .site-nav-link.active,
 .site-nav-link:hover {
-  color: white;
+  color: var(--blog-accent);
 }
 
 .blog-hero {
@@ -166,15 +168,111 @@ header {
 
 .blog-hero h1 {
   margin: 0;
-  font-size: clamp(2.1rem, 5vw, 3.4rem);
-  color: var(--dark);
+  font-size: 3.65rem;
+  background: linear-gradient(100deg, #111111 0%, #007aff 56%, #5f8fcf 100%);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .blog-hero p:last-child {
   margin: 0.9rem 0 0;
   color: var(--gray);
-  font-size: 1.05rem;
+  font-size: 1.14rem;
   font-weight: 700;
+}
+
+.home-page {
+  min-height: calc(100vh - 8rem);
+  display: grid;
+  place-items: center;
+  padding: 5.5rem 0 5rem;
+  color: var(--dark);
+}
+
+.home-hero {
+  width: min(72rem, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-kicker {
+  margin: 0 0 1rem;
+  color: var(--blog-accent);
+  font-size: 1.08rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.home-hero h1 {
+  margin: 0;
+  background: linear-gradient(100deg, #111111 0%, #007aff 56%, #5f8fcf 100%);
+  background-clip: text;
+  color: transparent;
+  font-size: 6.4rem;
+  font-weight: 900;
+  line-height: 0.95;
+  white-space: nowrap;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.15rem;
+  margin-top: 3rem;
+}
+
+.home-button {
+  box-sizing: border-box;
+  min-width: 10.5rem;
+  min-height: 3.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.75rem;
+  border-radius: 999px;
+  font-size: 1.18rem;
+  font-weight: 800;
+  text-align: center;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.home-button.primary {
+  border: 1px solid var(--blog-accent);
+  box-shadow: 0 0.9rem 2rem rgba(0, 113, 227, 0.2);
+  background: var(--blog-accent);
+  color: white;
+}
+
+.home-button.secondary {
+  border: 1px solid var(--blog-border);
+  box-shadow: 0 0.9rem 2rem rgba(0, 0, 0, 0.06);
+  background: var(--blog-surface);
+  color: var(--blog-accent);
+  backdrop-filter: blur(18px);
+}
+
+.home-button:hover {
+  transform: translateY(-0.12rem);
+}
+
+.home-button.primary:hover {
+  background: var(--blog-nav-deep);
+  color: white;
+}
+
+.home-button.secondary:hover {
+  background: var(--blog-surface-solid);
+  color: var(--blog-nav-deep);
 }
 
 .blog-filter {
@@ -187,14 +285,17 @@ header {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.8rem;
-  border: 4px solid var(--blog-border);
-  box-shadow: 0 0.55rem 0 var(--blog-shadow);
-  background: white;
+  border: 1px solid var(--blog-border);
+  border-radius: 8px;
+  box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.06);
+  background: var(--blog-surface);
+  backdrop-filter: blur(18px);
 }
 
 .filter-label {
   margin-right: 0.2rem;
   color: var(--dark);
+  font-size: 1.05rem;
   font-weight: 800;
 }
 
@@ -202,22 +303,24 @@ header {
   position: relative;
   z-index: 11;
   appearance: none;
-  min-height: 2.55rem;
-  padding: 0 1rem;
+  min-height: 2.35rem;
+  padding: 0 0.95rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 3px solid var(--blog-purple-dark);
-  box-shadow: 0 0.22rem 0 var(--blog-purple-dark);
+  border: 1px solid color-mix(in srgb, var(--blog-purple-dark) 18%, white);
+  border-radius: 999px;
+  box-shadow: none;
   background: var(--blog-purple);
-  color: #341a7a;
-  font: 800 0.95rem/1 var(--bodyFont);
+  color: var(--blog-nav-deep);
+  font: 800 1rem/1 var(--bodyFont);
   cursor: pointer;
   pointer-events: auto;
 }
 
 .filter-button.active {
+  border-color: var(--blog-purple-dark);
   background: var(--blog-purple-dark);
   color: white;
 }
@@ -231,11 +334,10 @@ header {
 
 .blog-card {
   min-height: 15rem;
-  border: 4px solid var(--blog-border);
-  box-shadow:
-    0.35rem 0.35rem 0 var(--light),
-    0.55rem 0.75rem 0 var(--blog-shadow);
-  background: white;
+  border: 1px solid var(--blog-border);
+  border-radius: 8px;
+  box-shadow: 0 1.35rem 3rem rgba(0, 0, 0, 0.06);
+  background: var(--blog-surface-solid);
   transition:
     transform 0.18s ease,
     box-shadow 0.18s ease;
@@ -246,10 +348,8 @@ header {
 }
 
 .blog-card:hover {
-  transform: translateY(-0.15rem);
-  box-shadow:
-    0.35rem 0.35rem 0 var(--light),
-    0.55rem 0.95rem 0 var(--blog-shadow);
+  transform: translateY(-0.18rem);
+  box-shadow: 0 1.65rem 3.4rem rgba(0, 0, 0, 0.09);
 }
 
 .blog-card-link {
@@ -263,13 +363,14 @@ header {
 
 .blog-card h2 {
   margin: 0;
-  font-size: 1.22rem;
+  font-size: 1.34rem;
   line-height: 1.35;
 }
 
 .blog-card-description {
   margin: 1rem 0 0;
   color: var(--gray);
+  font-size: 1.08rem;
   line-height: 1.5;
 }
 
@@ -277,8 +378,9 @@ header {
   margin-top: auto;
   padding-top: 1.1rem;
   color: var(--gray);
-  font-weight: 800;
-  border-top: 4px dotted color-mix(in srgb, var(--blog-border) 60%, white);
+  font-size: 1rem;
+  font-weight: 700;
+  border-top: 1px solid var(--blog-border);
 }
 
 .blog-card-tags {
@@ -294,10 +396,12 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 3px solid var(--blog-purple-dark);
-  box-shadow: 0 0.18rem 0 var(--blog-purple-dark);
+  border: 1px solid color-mix(in srgb, var(--blog-purple-dark) 18%, white);
+  border-radius: 999px;
+  box-shadow: none;
   background: var(--blog-purple);
-  color: #341a7a;
+  color: var(--blog-nav-deep);
+  font-size: 0.98rem;
   font-weight: 800;
 }
 
@@ -305,9 +409,11 @@ body[data-slug="about"] article {
   max-width: 52rem;
   margin: 0 auto 4rem;
   padding: 2rem;
-  border: 4px solid var(--blog-border);
-  box-shadow: 0 0.55rem 0 var(--blog-shadow);
-  background: white;
+  border: 1px solid var(--blog-border);
+  border-radius: 8px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.07);
+  background: var(--blog-surface-solid);
+  font-size: 1.1rem;
 }
 
 .profile-page {
@@ -316,7 +422,7 @@ body[data-slug="about"] article {
   display: grid;
   gap: 2.15rem;
   color: var(--dark);
-  font-size: 1.08rem;
+  font-size: 1.12rem;
   line-height: 1.76;
 }
 
@@ -330,14 +436,14 @@ body[data-slug="about"] article {
   width: auto;
   margin: 0;
   padding: 0 0 1.3rem;
-  border-bottom: 4px solid color-mix(in srgb, var(--blog-border) 48%, white);
+  border-bottom: 1px solid var(--blog-border);
   background: transparent;
   box-shadow: none;
 }
 
 .profile-hero h1 {
   margin: 0;
-  font-size: clamp(1.85rem, 4vw, 2.25rem);
+  font-size: 2.4rem;
   line-height: 1.12;
 }
 
@@ -345,7 +451,7 @@ body[data-slug="about"] article {
   max-width: 48rem;
   margin: 0.85rem 0 0;
   color: var(--darkgray);
-  font-size: 1.12rem;
+  font-size: 1.18rem;
   line-height: 1.65;
 }
 
@@ -357,9 +463,9 @@ body[data-slug="about"] article {
 .profile-contact h2 {
   margin: 0 0 1rem;
   padding-bottom: 0.35rem;
-  border-bottom: 3px solid color-mix(in srgb, var(--blog-border) 36%, white);
+  border-bottom: 1px solid var(--blog-border);
   color: var(--blog-accent);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 900;
   letter-spacing: 0;
   line-height: 1.25;
@@ -369,14 +475,14 @@ body[data-slug="about"] article {
 .profile-section h3 {
   margin: 0 0 0.75rem;
   color: var(--dark);
-  font-size: clamp(1.3rem, 3vw, 1.65rem);
+  font-size: 1.7rem;
   line-height: 1.25;
 }
 
 .profile-focus p:last-child {
   max-width: 100%;
   margin: 1rem 0 0;
-  font-size: 1.12rem;
+  font-size: 1.18rem;
   line-height: 1.72;
 }
 
@@ -392,12 +498,12 @@ body[data-slug="about"] article {
   grid-template-columns: 8.2rem minmax(0, 1fr);
   gap: 1rem;
   padding: 0.8rem 0;
-  border-top: 3px dotted color-mix(in srgb, var(--blog-border) 55%, white);
+  border-top: 1px solid var(--blog-border);
 }
 
 .profile-timeline time,
 .profile-publication-year {
-  color: var(--blog-nav-deep);
+  color: var(--blog-accent);
   font-weight: 900;
 }
 
@@ -428,7 +534,7 @@ body[data-slug="about"] article {
 .profile-skill-list h3,
 .profile-publication h3 {
   margin: 0;
-  color: var(--blog-nav-deep);
+  color: var(--blog-accent);
   font-size: 1.08rem;
 }
 
@@ -445,7 +551,7 @@ body[data-slug="about"] article {
 
 .profile-awards li {
   padding: 0.65rem 0 0.65rem 1rem;
-  border-left: 4px solid color-mix(in srgb, var(--blog-purple-dark) 75%, white);
+  border-left: 2px solid var(--blog-purple-dark);
 }
 
 .profile-publication {
@@ -455,7 +561,7 @@ body[data-slug="about"] article {
   align-items: start;
   margin-top: 1.2rem;
   padding: 0.95rem 0;
-  border-top: 3px dotted color-mix(in srgb, var(--blog-border) 55%, white);
+  border-top: 1px solid var(--blog-border);
   background: transparent;
 }
 
@@ -478,7 +584,7 @@ body[data-slug="about"] article {
 }
 
 .profile-contact-list dt {
-  color: var(--blog-nav-deep);
+  color: var(--blog-accent);
   font-weight: 900;
 }
 
@@ -487,7 +593,7 @@ body[data-slug="about"] article {
 }
 
 .profile-contact-list a {
-  color: var(--blog-nav);
+  color: var(--blog-accent);
   font-weight: 800;
   overflow-wrap: anywhere;
 }
@@ -503,6 +609,14 @@ footer {
 }
 
 @media (max-width: 900px) {
+  .home-hero h1 {
+    font-size: 4.2rem;
+  }
+
+  .blog-hero h1 {
+    font-size: 3rem;
+  }
+
   .blog-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -535,6 +649,23 @@ footer {
     padding: 1rem;
   }
 
+  .home-page {
+    min-height: calc(100vh - 7rem);
+    padding-top: 3.5rem;
+  }
+
+  .home-hero h1 {
+    font-size: 2.35rem;
+  }
+
+  .home-actions {
+    gap: 0.8rem;
+  }
+
+  .home-button {
+    min-width: min(11rem, 100%);
+  }
+
   body[data-slug^="02-Posts/"] article {
     padding: 1.4rem;
   }
@@ -565,6 +696,14 @@ footer {
 
   .profile-page {
     margin-top: 1.5rem;
-    font-size: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .profile-hero h1 {
+    font-size: 2rem;
+  }
+
+  .profile-section h3 {
+    font-size: 1.45rem;
   }
 }

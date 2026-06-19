@@ -27,6 +27,7 @@ import TopNav from "./TopNav"
 import BlogIndex from "./BlogIndex"
 import BackHome from "./BackHome"
 import ProfilePage from "./ProfilePage"
+import HomePage from "./HomePage"
 
 export {
   ArticleTitle,
@@ -58,4 +59,5 @@ export {
   BlogIndex,
   BackHome,
   ProfilePage,
+  HomePage,
 }

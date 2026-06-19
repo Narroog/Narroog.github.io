@@ -33,7 +33,7 @@ const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData }: QuartzComponent
         <span class="filter-label">标签筛选</span>
         <a
           class="filter-button active"
-          href={resolveRelative(fileData.slug!, "index" as FullSlug)}
+          href={resolveRelative(fileData.slug!, "blog" as FullSlug)}
           data-tag="all"
         >
           全部
