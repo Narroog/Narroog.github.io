@@ -8,11 +8,11 @@
   --blog-surface-solid: #ffffff;
   --blog-border: rgba(0, 0, 0, 0.08);
   --blog-shadow: rgba(0, 0, 0, 0.1);
-  --blog-accent: #007aff;
+  --blog-accent: #4D61E3;
   --blog-nav: #ffffff;
-  --blog-nav-deep: #006ee6;
-  --blog-purple: #edf6ff;
-  --blog-purple-dark: #007aff;
+  --blog-nav-deep: #3d4fc7;
+  --blog-purple: #eef1ff;
+  --blog-purple-dark: #4D61E3;
 }
 
 body {
@@ -169,7 +169,7 @@ header {
 .blog-hero h1 {
   margin: 0;
   font-size: 3.65rem;
-  background: linear-gradient(100deg, #111111 0%, #007aff 56%, #5f8fcf 100%);
+  background: linear-gradient(100deg, #4D8FE3 0%, #4D61E3 50%, #7F4DE3 100%);
   background-clip: text;
   color: transparent;
   -webkit-background-clip: text;
@@ -208,7 +208,7 @@ header {
 
 .home-hero h1 {
   margin: 0;
-  background: linear-gradient(100deg, #111111 0%, #007aff 56%, #5f8fcf 100%);
+  background: linear-gradient(100deg, #4D8FE3 0%, #4D61E3 50%, #7F4DE3 100%);
   background-clip: text;
   color: transparent;
   font-size: 6.4rem;
@@ -248,7 +248,7 @@ header {
 
 .home-button.primary {
   border: 1px solid var(--blog-accent);
-  box-shadow: 0 0.9rem 2rem rgba(0, 113, 227, 0.2);
+  box-shadow: 0 0.9rem 2rem rgba(77, 97, 227, 0.2);
   background: var(--blog-accent);
   color: white;
 }

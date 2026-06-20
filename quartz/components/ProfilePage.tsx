@@ -6,16 +6,11 @@ const ProfilePage: QuartzComponent = () => {
       <header class="profile-hero">
         <div class="profile-hero-copy">
           <h1>Chenkun Deng</h1>
-          <p>
-            I study thermal issues in advanced transistors, with a focus on thermal design,
-            electro-thermal behavior, and simulation-driven understanding of device reliability.
-          </p>
         </div>
       </header>
 
       <section class="profile-section profile-focus" aria-labelledby="research-focus">
         <h2 id="research-focus">Research Focus</h2>
-        <h3>Thermal Issues in Transistors</h3>
         <p>
           My main research focuses on <strong>thermal issues in transistors</strong>, with current
           emphasis on <strong>thermal design of advanced-node transistors (FinFETs)</strong> and{" "}
