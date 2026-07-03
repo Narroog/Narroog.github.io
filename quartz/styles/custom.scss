@@ -275,6 +275,37 @@ header {
   color: var(--blog-nav-deep);
 }
 
+@media (min-width: 641px) {
+  body[data-slug="index"] {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  body[data-slug="index"] .page,
+  body[data-slug="index"] .page > #quartz-body,
+  body[data-slug="index"] .page > #quartz-body .center,
+  body[data-slug="index"] .page > #quartz-body .page-header {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  body[data-slug="index"] .page > #quartz-body .page-header > .popover-hint {
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+  }
+
+  body[data-slug="index"] .home-page {
+    width: min(84rem, calc(100vw - 3rem));
+    min-height: 0;
+    padding: 0;
+    pointer-events: auto;
+  }
+}
+
 .blog-filter {
   position: relative;
   z-index: 10;
