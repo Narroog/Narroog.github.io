@@ -5,7 +5,27 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [Component.TopNav()],
-  afterBody: [],
+  afterBody: [
+    Component.ConditionalRender({
+      component: Component.Comments({
+        provider: "giscus",
+        options: {
+          repo: "Narroog/Narroog.github.io",
+          repoId: "R_kgDOSTzMXg",
+          category: "Announcements",
+          categoryId: "DIC_kwDOSTzMXs4DBMz9",
+          mapping: "pathname",
+          strict: false,
+          reactionsEnabled: true,
+          inputPosition: "top",
+          lang: "zh-CN",
+          lightTheme: "light",
+          darkTheme: "dark",
+        },
+      }),
+      condition: (page) => page.fileData.slug === "guestbook",
+    }),
+  ],
   footer: Component.Footer({
     links: {},
   }),
