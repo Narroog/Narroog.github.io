@@ -14,7 +14,7 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: null,
     locale: "zh-CN",
-    baseUrl: "narog.cn",
+    baseUrl: "narroog.github.io",
     ignorePatterns: ["private", "templates", "99-Templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
