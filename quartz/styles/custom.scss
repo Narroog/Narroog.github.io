@@ -471,13 +471,12 @@ body[data-slug="about"] article {
 }
 
 body[data-slug="about"] .page > #quartz-body .center > .page-footer {
-  box-sizing: border-box;
-  width: min(52rem, 100%);
+  width: min(52rem, calc(100% - 4rem));
   margin-top: -1.75rem;
   margin-right: auto;
   margin-bottom: 4rem;
   margin-left: auto;
-  padding: 1.5rem;
+  padding: 2rem;
   display: block;
   border: 1px solid color-mix(in srgb, var(--blog-accent) 24%, var(--blog-border));
   border-top: 3px solid var(--blog-accent);
