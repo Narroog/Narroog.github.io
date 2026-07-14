@@ -30,3 +30,7 @@ draft: false
 
 - GitHub: [Narroog](https://github.com/Narroog)
 - Email: dcknarog7@gmail.com
+
+## 留言板
+
+欢迎留下你的想法、问题或建议。留言需使用 GitHub 账号登录；你也可以直接通过邮件联系我。

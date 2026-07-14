@@ -23,7 +23,7 @@ export const sharedPageComponents: SharedLayout = {
           darkTheme: "dark",
         },
       }),
-      condition: (page) => page.fileData.slug === "guestbook",
+      condition: (page) => page.fileData.slug === "about",
     }),
   ],
   footer: Component.Footer({
