@@ -470,7 +470,7 @@ body[data-slug="about"] article {
   font-size: 1.1rem;
 }
 
-body[data-slug="about"] .center > .page-footer {
+body[data-slug="about"] .page > #quartz-body .center > .page-footer {
   box-sizing: border-box;
   width: min(52rem, 100%);
   margin-top: -1.75rem;
@@ -745,7 +745,7 @@ footer {
     padding: 1.4rem;
   }
 
-  body[data-slug="about"] .center > .page-footer {
+  body[data-slug="about"] .page > #quartz-body .center > .page-footer {
     margin-top: -2.5rem;
     padding: 1rem;
   }
