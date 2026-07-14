@@ -8,11 +8,16 @@
   --blog-surface-solid: #ffffff;
   --blog-border: rgba(0, 0, 0, 0.08);
   --blog-shadow: rgba(0, 0, 0, 0.1);
-  --blog-accent: #4D61E3;
+  --blog-accent: #4d61e3;
   --blog-nav: #ffffff;
   --blog-nav-deep: #3d4fc7;
   --blog-purple: #eef1ff;
-  --blog-purple-dark: #4D61E3;
+  --blog-purple-dark: #4d61e3;
+  --post-heading-2: #4057c9;
+  --post-heading-3: #7650a8;
+  --post-heading-4: #287a72;
+  --post-heading-5: #98631f;
+  --post-heading-6: #a34f68;
 }
 
 body {
@@ -86,6 +91,31 @@ body[data-slug^="02-Posts/"] article {
 body[data-slug^="02-Posts/"] article p,
 body[data-slug^="02-Posts/"] article li {
   line-height: 1.78;
+}
+
+body[data-slug^="02-Posts/"] article h2,
+body[data-slug^="02-Posts/"] article h2 > a[role="anchor"] {
+  color: var(--post-heading-2);
+}
+
+body[data-slug^="02-Posts/"] article h3,
+body[data-slug^="02-Posts/"] article h3 > a[role="anchor"] {
+  color: var(--post-heading-3);
+}
+
+body[data-slug^="02-Posts/"] article h4,
+body[data-slug^="02-Posts/"] article h4 > a[role="anchor"] {
+  color: var(--post-heading-4);
+}
+
+body[data-slug^="02-Posts/"] article h5,
+body[data-slug^="02-Posts/"] article h5 > a[role="anchor"] {
+  color: var(--post-heading-5);
+}
+
+body[data-slug^="02-Posts/"] article h6,
+body[data-slug^="02-Posts/"] article h6 > a[role="anchor"] {
+  color: var(--post-heading-6);
 }
 
 .back-home-card {
@@ -169,7 +199,7 @@ header {
 .blog-hero h1 {
   margin: 0;
   font-size: 3.65rem;
-  background: linear-gradient(100deg, #4D8FE3 0%, #4D61E3 50%, #7F4DE3 100%);
+  background: linear-gradient(100deg, #4d8fe3 0%, #4d61e3 50%, #7f4de3 100%);
   background-clip: text;
   color: transparent;
   -webkit-background-clip: text;
@@ -208,7 +238,7 @@ header {
 
 .home-hero h1 {
   margin: 0;
-  background: linear-gradient(100deg, #4D8FE3 0%, #4D61E3 50%, #7F4DE3 100%);
+  background: linear-gradient(100deg, #4d8fe3 0%, #4d61e3 50%, #7f4de3 100%);
   background-clip: text;
   color: transparent;
   font-size: 6.4rem;
