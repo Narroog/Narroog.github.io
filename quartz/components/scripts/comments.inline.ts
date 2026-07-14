@@ -1,3 +1,5 @@
+const giscusThemeVersion = "20260715"
+
 const changeTheme = (e: CustomEventMap["themechange"]) => {
   const theme = e.detail.theme
   const iframe = document.querySelector("iframe.giscus-frame") as HTMLIFrameElement
@@ -37,9 +39,9 @@ const getThemeName = (theme: string) => {
 const getThemeUrl = (theme: string) => {
   const giscusContainer = document.querySelector(".giscus") as GiscusElement
   if (!giscusContainer) {
-    return `https://giscus.app/themes/${theme}.css`
+    return `https://giscus.app/themes/${theme}.css?v=${giscusThemeVersion}`
   }
-  return `${giscusContainer.dataset.themeUrl ?? "https://giscus.app/themes"}/${theme}.css`
+  return `${giscusContainer.dataset.themeUrl ?? "https://giscus.app/themes"}/${theme}.css?v=${giscusThemeVersion}`
 }
 
 type GiscusElement = Omit<HTMLElement, "dataset"> & {
