@@ -493,8 +493,13 @@ body[data-slug="about"] .giscus-frame {
 .profile-page {
   max-width: 52rem;
   margin: 3rem auto 5rem;
+  padding: 2rem;
   display: grid;
   gap: 2.15rem;
+  border: 1px solid var(--blog-border);
+  border-radius: 8px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.07);
+  background: var(--blog-surface-solid);
   color: var(--dark);
   font-size: 1.12rem;
   line-height: 1.76;
@@ -775,6 +780,7 @@ footer {
 
   .profile-page {
     margin-top: 1.5rem;
+    padding: 1.4rem;
     font-size: 1.05rem;
   }
 
