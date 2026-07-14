@@ -97,3 +97,25 @@ main .pagination-loader-container {
 main .gsc-loading-image {
   background-image: url("https://github.githubassets.com/images/mona-loading-dark.gif");
 }
+
+/* Dark-mode counterpart of Narog's Blog surface and accent system. */
+main {
+  --color-btn-text: #d4d4d4;
+  --color-btn-bg: #161618;
+  --color-btn-border: rgb(255 255 255 / 12%);
+  --color-btn-hover-bg: #292942;
+  --color-btn-primary-bg: #4d61e3;
+  --color-btn-primary-hover-bg: #6677ee;
+  --color-btn-primary-border: #4d61e3;
+  --color-accent-fg: #8d9aff;
+  --color-accent-emphasis: #6677ee;
+  --color-accent-muted: rgb(102 119 238 / 40%);
+  --color-accent-subtle: #252a57;
+  --color-canvas-default: #161618;
+  --color-canvas-overlay: #1e1e22;
+  --color-canvas-inset: #111114;
+  --color-canvas-subtle: #1e1e22;
+  --color-border-default: rgb(255 255 255 / 14%);
+  --color-border-muted: rgb(255 255 255 / 9%);
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}

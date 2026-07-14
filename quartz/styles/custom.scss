@@ -470,6 +470,22 @@ body[data-slug="about"] article {
   font-size: 1.1rem;
 }
 
+body[data-slug="about"] .page-footer {
+  box-sizing: border-box;
+  width: min(52rem, 100%);
+  margin: -1.75rem auto 4rem;
+  padding: 1.5rem;
+  border: 1px solid var(--blog-border);
+  border-radius: 8px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.07);
+  background: var(--blog-surface-solid);
+}
+
+body[data-slug="about"] .giscus,
+body[data-slug="about"] .giscus-frame {
+  width: 100%;
+}
+
 .profile-page {
   max-width: 52rem;
   margin: 3rem auto 5rem;
@@ -722,6 +738,11 @@ footer {
 
   body[data-slug^="02-Posts/"] article {
     padding: 1.4rem;
+  }
+
+  body[data-slug="about"] .page-footer {
+    margin-top: -2.5rem;
+    padding: 1rem;
   }
 
   .profile-hero,
