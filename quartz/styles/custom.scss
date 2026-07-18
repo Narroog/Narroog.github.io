@@ -118,6 +118,19 @@ body[data-slug^="02-Posts/"] article h6 > a[role="anchor"] {
   color: var(--post-heading-6);
 }
 
+body[data-slug^="02-Posts/"] article blockquote {
+  margin: 1.25rem 0;
+  padding: 0.9rem 1.1rem;
+  border-left: 4px solid var(--post-heading-2);
+  border-radius: 0 6px 6px 0;
+  background: color-mix(in srgb, var(--post-heading-2) 7%, white);
+  font-size: 0.96em;
+}
+
+body[data-slug^="02-Posts/"] article blockquote p {
+  margin: 0;
+}
+
 .back-home-card {
   display: inline-flex;
   align-items: center;
