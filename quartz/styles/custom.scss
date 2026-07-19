@@ -3,21 +3,29 @@
 // put your custom CSS here!
 
 :root {
-  --blog-page-bg: #f5f5f7;
-  --blog-surface: rgba(255, 255, 255, 0.78);
+  --blog-page-bg: #fafafa;
+  --blog-surface: rgba(255, 255, 255, 0.88);
   --blog-surface-solid: #ffffff;
-  --blog-border: rgba(0, 0, 0, 0.08);
-  --blog-shadow: rgba(0, 0, 0, 0.1);
-  --blog-accent: #4d61e3;
+  --blog-border: rgba(27, 31, 43, 0.1);
+  --blog-shadow: rgba(27, 31, 43, 0.09);
+  --blog-accent: #2f2f2f;
   --blog-nav: #ffffff;
-  --blog-nav-deep: #3d4fc7;
-  --blog-purple: #eef1ff;
-  --blog-purple-dark: #4d61e3;
-  --post-heading-2: #4057c9;
-  --post-heading-3: #7650a8;
-  --post-heading-4: #287a72;
-  --post-heading-5: #98631f;
-  --post-heading-6: #a34f68;
+  --blog-nav-deep: #101010;
+  --blog-purple: #f0f0f0;
+  --blog-purple-dark: #2f2f2f;
+  --post-heading-2: #b8382e;
+  --post-heading-3: #9d3028;
+  --post-heading-4: #842a24;
+  --post-heading-5: #6d2521;
+  --post-heading-6: #57201d;
+  --tone-indigo: #b8382e;
+  --tone-teal: #9d3028;
+  --tone-ochre: #b8382e;
+  --tone-indigo-soft: #faecea;
+  --tone-teal-soft: #f5dfdd;
+  --tone-ochre-soft: #faecea;
+  --blog-tag-red: #a96863;
+  --blog-tag-red-soft: #f5eceb;
 }
 
 body {
@@ -118,6 +126,26 @@ body[data-slug^="02-Posts/"] article h6 > a[role="anchor"] {
   color: var(--post-heading-6);
 }
 
+body[data-slug^="02-Posts/"] .article-title {
+  color: var(--tone-indigo);
+}
+
+body[data-slug="about"] .article-title,
+body[data-slug="about"] article h1,
+body[data-slug="about"] article h1 > a[role="anchor"] {
+  color: var(--tone-indigo);
+}
+
+body[data-slug="about"] article h2,
+body[data-slug="about"] article h2 > a[role="anchor"] {
+  color: var(--tone-teal);
+}
+
+body[data-slug="about"] article h3,
+body[data-slug="about"] article h3 > a[role="anchor"] {
+  color: var(--tone-teal);
+}
+
 body[data-slug^="02-Posts/"] article blockquote {
   margin: 1.25rem 0;
   padding: 0.9rem 1.1rem;
@@ -194,7 +222,7 @@ header {
 
 .site-nav-link.active,
 .site-nav-link:hover {
-  color: var(--blog-accent);
+  color: var(--tone-ochre);
 }
 
 .blog-hero {
@@ -212,11 +240,9 @@ header {
 .blog-hero h1 {
   margin: 0;
   font-size: 3.65rem;
-  background: linear-gradient(100deg, #4d8fe3 0%, #4d61e3 50%, #7f4de3 100%);
-  background-clip: text;
-  color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: none;
+  color: var(--dark);
+  -webkit-text-fill-color: currentcolor;
 }
 
 .blog-hero p:last-child {
@@ -251,7 +277,7 @@ header {
 
 .home-hero h1 {
   margin: 0;
-  background: linear-gradient(100deg, #4d8fe3 0%, #4d61e3 50%, #7f4de3 100%);
+  background: linear-gradient(100deg, #151515 0%, #4e4e4e 52%, #8a8a8a 100%);
   background-clip: text;
   color: transparent;
   font-size: 6.4rem;
@@ -278,7 +304,7 @@ header {
   align-items: center;
   justify-content: center;
   padding: 0 1.75rem;
-  border-radius: 999px;
+  border-radius: 14px;
   font-size: 1.18rem;
   font-weight: 800;
   text-align: center;
@@ -290,9 +316,9 @@ header {
 }
 
 .home-button.primary {
-  border: 1px solid var(--blog-accent);
-  box-shadow: 0 0.9rem 2rem rgba(77, 97, 227, 0.2);
-  background: var(--blog-accent);
+  border: 1px solid var(--tone-ochre);
+  box-shadow: 0 0.9rem 2rem rgba(184, 56, 46, 0.2);
+  background: var(--tone-ochre);
   color: white;
 }
 
@@ -309,7 +335,7 @@ header {
 }
 
 .home-button.primary:hover {
-  background: var(--blog-nav-deep);
+  background: #922d25;
   color: white;
 }
 
@@ -353,6 +379,7 @@ header {
   flex-wrap: wrap;
   gap: 0.8rem;
   border: 1px solid var(--blog-border);
+  border-top: 3px solid var(--tone-indigo);
   border-radius: 8px;
   box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.06);
   background: var(--blog-surface);
@@ -376,14 +403,20 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 1px solid color-mix(in srgb, var(--blog-purple-dark) 18%, white);
-  border-radius: 999px;
+  border: 1px solid var(--tone-indigo);
+  border-radius: 10px;
   box-shadow: none;
-  background: var(--blog-purple);
-  color: var(--blog-nav-deep);
+  background: var(--blog-tag-red-soft);
+  color: var(--blog-tag-red);
   font: 800 1rem/1 var(--bodyFont);
   cursor: pointer;
   pointer-events: auto;
+}
+
+.filter-button.active {
+  border-color: var(--blog-purple-dark);
+  background: var(--blog-purple-dark);
+  color: white;
 }
 
 .filter-button.active {
@@ -402,6 +435,7 @@ header {
 .blog-card {
   min-height: 15rem;
   border: 1px solid var(--blog-border);
+  border-top: 3px solid var(--tone-indigo);
   border-radius: 8px;
   box-shadow: 0 1.35rem 3rem rgba(0, 0, 0, 0.06);
   background: var(--blog-surface-solid);
@@ -434,6 +468,14 @@ header {
   line-height: 1.35;
 }
 
+.blog-card h2 {
+  color: var(--tone-indigo);
+}
+
+.blog-card:hover h2 {
+  color: var(--tone-indigo);
+}
+
 .blog-card-description {
   margin: 1rem 0 0;
   color: var(--gray);
@@ -463,13 +505,20 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 1px solid color-mix(in srgb, var(--blog-purple-dark) 18%, white);
-  border-radius: 999px;
+  border: 1px solid var(--tone-indigo);
+  border-radius: 10px;
   box-shadow: none;
-  background: var(--blog-purple);
-  color: var(--blog-nav-deep);
+  background: var(--blog-tag-red-soft);
+  color: var(--blog-tag-red);
   font-size: 0.98rem;
   font-weight: 800;
+}
+
+.tags a.internal.tag-link {
+  border: 1px solid color-mix(in srgb, var(--tone-ochre) 24%, white);
+  border-radius: 10px;
+  background: var(--tone-ochre-soft);
+  color: var(--tone-ochre);
 }
 
 body[data-slug="about"] article {
@@ -535,6 +584,7 @@ body[data-slug="about"] .giscus-frame {
 
 .profile-hero h1 {
   margin: 0;
+  color: var(--dark);
   font-size: 2.4rem;
   line-height: 1.12;
 }
@@ -556,7 +606,7 @@ body[data-slug="about"] .giscus-frame {
   margin: 0 0 1rem;
   padding-bottom: 0.35rem;
   border-bottom: 1px solid var(--blog-border);
-  color: var(--blog-accent);
+  color: var(--tone-teal);
   font-size: 1.1rem;
   font-weight: 900;
   letter-spacing: 0;
@@ -566,7 +616,7 @@ body[data-slug="about"] .giscus-frame {
 
 .profile-section h3 {
   margin: 0 0 0.75rem;
-  color: var(--dark);
+  color: var(--tone-teal);
   font-size: 1.7rem;
   line-height: 1.25;
 }
@@ -626,7 +676,7 @@ body[data-slug="about"] .giscus-frame {
 .profile-skill-list h3,
 .profile-publication h3 {
   margin: 0;
-  color: var(--blog-accent);
+  color: var(--tone-teal);
   font-size: 1.08rem;
 }
 
