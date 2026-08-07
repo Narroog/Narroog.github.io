@@ -23,7 +23,11 @@ export const sharedPageComponents: SharedLayout = {
           darkTheme: "dark",
         },
       }),
-      condition: (page) => page.fileData.slug === "about",
+      condition: (page) =>
+        page.fileData.slug === "about" ||
+        (page.fileData.slug?.startsWith("02-Posts/") === true &&
+          !page.fileData.slug.endsWith("/README") &&
+          !page.fileData.slug.endsWith("/index")),
     }),
   ],
   footer: Component.Footer({

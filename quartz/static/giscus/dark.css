@@ -103,19 +103,24 @@ main {
   --color-btn-text: #d4d4d4;
   --color-btn-bg: #161618;
   --color-btn-border: rgb(255 255 255 / 12%);
-  --color-btn-hover-bg: #292942;
-  --color-btn-primary-bg: #4d61e3;
-  --color-btn-primary-hover-bg: #6677ee;
-  --color-btn-primary-border: #4d61e3;
-  --color-accent-fg: #8d9aff;
-  --color-accent-emphasis: #6677ee;
-  --color-accent-muted: rgb(102 119 238 / 40%);
-  --color-accent-subtle: #252a57;
+  --color-btn-hover-bg: #35201e;
+  --color-btn-primary-bg: #b8382e;
+  --color-btn-primary-hover-bg: #d26057;
+  --color-btn-primary-border: #b8382e;
+  --color-accent-fg: #df756d;
+  --color-accent-emphasis: #c94b42;
+  --color-accent-muted: rgb(184 56 46 / 40%);
+  --color-accent-subtle: #351d1b;
   --color-canvas-default: #161618;
   --color-canvas-overlay: #1e1e22;
   --color-canvas-inset: #111114;
   --color-canvas-subtle: #1e1e22;
   --color-border-default: rgb(255 255 255 / 14%);
   --color-border-muted: rgb(255 255 255 / 9%);
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    "Source Sans Pro",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 }
