@@ -1,6 +1,6 @@
 ---
-title: "Agent 协助写论文：从资料准备到迭代润色"
-description: 一套使用 Agent 协助准备资料、生成草稿并迭代润色学术论文的工作流程
+title: "Agent 协助写论文"
+description: 一套使用 Agent 协助写论文的工作流程
 date: 2026-08-07
 draft: false
 tags:
