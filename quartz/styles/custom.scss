@@ -101,6 +101,17 @@ body[data-slug^="02-Posts/"] article li {
   line-height: 1.78;
 }
 
+body[data-slug="02-Posts/RF-PA器件的工作方式"] article {
+  img {
+    display: block;
+    margin-inline: auto;
+  }
+
+  .table-container > table {
+    margin-inline: auto;
+  }
+}
+
 body[data-slug^="02-Posts/"] article h2,
 body[data-slug^="02-Posts/"] article h2 > a[role="anchor"] {
   color: var(--post-heading-2);
