@@ -40,6 +40,13 @@ export default (() => {
       <head>
         <title>{title}</title>
         <meta charSet="utf-8" />
+        <link
+          rel="preload"
+          href={joinSegments(baseDir, "static/fonts/manrope/manrope-latin.woff2")}
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         {cfg.theme.cdnCaching && cfg.theme.fontOrigin === "googleFonts" && (
           <>
             <link rel="preconnect" href="https://fonts.googleapis.com" />

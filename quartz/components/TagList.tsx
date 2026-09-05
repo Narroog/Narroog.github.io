@@ -1,6 +1,7 @@
 import { FullSlug, resolveRelative } from "../util/path"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
+import { getTagColor } from "../util/tagColor"
 
 const TagList: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
   const tags = fileData.frontmatter?.tags
@@ -11,7 +12,7 @@ const TagList: QuartzComponent = ({ fileData, displayClass }: QuartzComponentPro
           const linkDest = resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)
           return (
             <li>
-              <a href={linkDest} class="internal tag-link">
+              <a href={linkDest} class="internal tag-link" data-tag-color={getTagColor(tag)}>
                 {tag}
               </a>
             </li>

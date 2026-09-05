@@ -1,8 +1,16 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// Self-host the display face; reading text continues to use system fonts.
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700 800;
+  font-display: swap;
+  src: url("./static/fonts/manrope/manrope-latin.woff2") format("woff2");
+}
 
 :root {
+  --brand-font: "Manrope", var(--headerFont);
   --blog-page-bg: #fafafa;
   --blog-surface: rgba(255, 255, 255, 0.88);
   --blog-surface-solid: #ffffff;
@@ -13,19 +21,61 @@
   --blog-nav-deep: #101010;
   --blog-purple: #f0f0f0;
   --blog-purple-dark: #2f2f2f;
-  --post-heading-2: #b8382e;
-  --post-heading-3: #9d3028;
-  --post-heading-4: #842a24;
-  --post-heading-5: #6d2521;
-  --post-heading-6: #57201d;
-  --tone-indigo: #b8382e;
-  --tone-teal: #9d3028;
-  --tone-ochre: #b8382e;
-  --tone-indigo-soft: #faecea;
-  --tone-teal-soft: #f5dfdd;
-  --tone-ochre-soft: #faecea;
-  --blog-tag-red: #a96863;
-  --blog-tag-red-soft: #f5eceb;
+  --post-heading-2: var(--dark);
+  --post-heading-3: var(--dark);
+  --post-heading-4: var(--dark);
+  --post-heading-5: var(--dark);
+  --post-heading-6: var(--dark);
+}
+
+[data-tag-color] {
+  --tag-foreground: var(--tag-ink);
+  --tag-background: color-mix(in srgb, var(--tag-ink) 8%, var(--blog-surface-solid));
+  --tag-border: color-mix(in srgb, var(--tag-ink) 20%, var(--blog-surface-solid));
+}
+
+[data-tag-color="blue"] {
+  --tag-ink: #426382;
+  --tag-dark-ink: #a8c7e5;
+}
+
+[data-tag-color="green"] {
+  --tag-ink: #4c6b59;
+  --tag-dark-ink: #accdb6;
+}
+
+[data-tag-color="amber"] {
+  --tag-ink: #806335;
+  --tag-dark-ink: #dbc493;
+}
+
+[data-tag-color="violet"] {
+  --tag-ink: #6c5a83;
+  --tag-dark-ink: #c8b8df;
+}
+
+[data-tag-color="teal"] {
+  --tag-ink: #426f70;
+  --tag-dark-ink: #a2cece;
+}
+
+[data-tag-color="slate"] {
+  --tag-ink: #5c6571;
+  --tag-dark-ink: #bdc7d2;
+}
+
+:root[saved-theme="dark"] {
+  --blog-page-bg: #181818;
+  --blog-surface: rgba(32, 32, 32, 0.92);
+  --blog-surface-solid: #202020;
+  --blog-border: rgba(255, 255, 255, 0.12);
+  --blog-nav: #202020;
+
+  [data-tag-color] {
+    --tag-foreground: var(--tag-dark-ink);
+    --tag-background: color-mix(in srgb, var(--tag-dark-ink) 10%, var(--blog-surface-solid));
+    --tag-border: color-mix(in srgb, var(--tag-dark-ink) 25%, var(--blog-surface-solid));
+  }
 }
 
 body {
@@ -138,23 +188,23 @@ body[data-slug^="02-Posts/"] article h6 > a[role="anchor"] {
 }
 
 body[data-slug^="02-Posts/"] .article-title {
-  color: var(--tone-indigo);
+  color: var(--dark);
 }
 
 body[data-slug="about"] .article-title,
 body[data-slug="about"] article h1,
 body[data-slug="about"] article h1 > a[role="anchor"] {
-  color: var(--tone-indigo);
+  color: var(--dark);
 }
 
 body[data-slug="about"] article h2,
 body[data-slug="about"] article h2 > a[role="anchor"] {
-  color: var(--tone-teal);
+  color: var(--dark);
 }
 
 body[data-slug="about"] article h3,
 body[data-slug="about"] article h3 > a[role="anchor"] {
-  color: var(--tone-teal);
+  color: var(--dark);
 }
 
 body[data-slug^="02-Posts/"] article blockquote {
@@ -214,9 +264,11 @@ header {
 }
 
 .site-brand {
-  font-family: var(--headerFont);
+  font-family: var(--brand-font);
   font-size: 1.45rem;
   font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
   color: var(--dark);
 }
 
@@ -233,7 +285,7 @@ header {
 
 .site-nav-link.active,
 .site-nav-link:hover {
-  color: var(--tone-ochre);
+  color: var(--dark);
 }
 
 .blog-hero {
@@ -288,12 +340,14 @@ header {
 
 .home-hero h1 {
   margin: 0;
+  font-family: var(--brand-font);
   background: linear-gradient(100deg, #151515 0%, #4e4e4e 52%, #8a8a8a 100%);
   background-clip: text;
   color: transparent;
   font-size: 6.4rem;
-  font-weight: 900;
-  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
   white-space: nowrap;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -327,9 +381,9 @@ header {
 }
 
 .home-button.primary {
-  border: 1px solid var(--tone-ochre);
-  box-shadow: 0 0.9rem 2rem rgba(184, 56, 46, 0.2);
-  background: var(--tone-ochre);
+  border: 1px solid var(--dark);
+  box-shadow: 0 0.9rem 2rem rgba(0, 0, 0, 0.1);
+  background: var(--dark);
   color: white;
 }
 
@@ -346,7 +400,7 @@ header {
 }
 
 .home-button.primary:hover {
-  background: #922d25;
+  background: #454545;
   color: white;
 }
 
@@ -390,8 +444,7 @@ header {
   flex-wrap: wrap;
   gap: 0.8rem;
   border: 1px solid var(--blog-border);
-  border-top: 3px solid var(--tone-indigo);
-  border-radius: 8px;
+  border-radius: 18px;
   box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.06);
   background: var(--blog-surface);
   backdrop-filter: blur(18px);
@@ -414,26 +467,26 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 1px solid var(--tone-indigo);
+  border: 1px solid var(--tag-border, var(--blog-border));
   border-radius: 10px;
   box-shadow: none;
-  background: var(--blog-tag-red-soft);
-  color: var(--blog-tag-red);
-  font: 800 1rem/1 var(--bodyFont);
+  background: var(--tag-background, var(--blog-surface-solid));
+  color: var(--tag-foreground, var(--darkgray));
+  font: 600 0.9rem/1.3 var(--bodyFont);
   cursor: pointer;
   pointer-events: auto;
 }
 
 .filter-button.active {
-  border-color: var(--blog-purple-dark);
-  background: var(--blog-purple-dark);
-  color: white;
+  border-color: var(--tag-foreground, var(--blog-purple-dark));
+  background: var(--tag-foreground, var(--blog-purple-dark));
+  color: var(--blog-surface-solid);
 }
 
-.filter-button.active {
-  border-color: var(--blog-purple-dark);
-  background: var(--blog-purple-dark);
-  color: white;
+.filter-button:focus-visible,
+.blog-card-link:focus-visible {
+  outline: 2px solid var(--dark);
+  outline-offset: 4px;
 }
 
 .blog-grid {
@@ -446,9 +499,10 @@ header {
 .blog-card {
   min-height: 15rem;
   border: 1px solid var(--blog-border);
-  border-top: 3px solid var(--tone-indigo);
-  border-radius: 8px;
-  box-shadow: 0 1.35rem 3rem rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.06),
+    0 14px 32px rgba(0, 0, 0, 0.1);
   background: var(--blog-surface-solid);
   transition:
     transform 0.18s ease,
@@ -461,12 +515,15 @@ header {
 
 .blog-card:hover {
   transform: translateY(-0.18rem);
-  box-shadow: 0 1.65rem 3.4rem rgba(0, 0, 0, 0.09);
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.07),
+    0 20px 40px rgba(0, 0, 0, 0.13);
 }
 
 .blog-card-link {
   box-sizing: border-box;
   height: 100%;
+  border-radius: inherit;
   display: flex;
   flex-direction: column;
   padding: 1.45rem;
@@ -475,39 +532,39 @@ header {
 
 .blog-card h2 {
   margin: 0;
+  color: var(--dark);
   font-size: 1.34rem;
+  font-weight: 700;
   line-height: 1.35;
 }
 
-.blog-card h2 {
-  color: var(--tone-indigo);
-}
-
 .blog-card:hover h2 {
-  color: var(--tone-indigo);
+  color: var(--dark);
 }
 
 .blog-card-description {
-  margin: 1rem 0 0;
-  color: var(--gray);
-  font-size: 1.08rem;
-  line-height: 1.5;
+  margin: 0.8rem 0 1rem;
+  color: color-mix(in srgb, var(--darkgray) 55%, var(--gray));
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.65;
 }
 
 .blog-card-meta {
   margin-top: auto;
   padding-top: 1.1rem;
   color: var(--gray);
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 400;
   border-top: 1px solid var(--blog-border);
 }
 
 .blog-card-tags {
   display: flex;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 1rem;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
 }
 
 .blog-card-tags span {
@@ -516,20 +573,22 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 1px solid var(--tone-indigo);
+  border: 1px solid var(--tag-border, var(--blog-border));
   border-radius: 10px;
   box-shadow: none;
-  background: var(--blog-tag-red-soft);
-  color: var(--blog-tag-red);
-  font-size: 0.98rem;
-  font-weight: 800;
+  background: var(--tag-background, var(--lightgray));
+  color: var(--tag-foreground, var(--darkgray));
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.3;
 }
 
 .tags a.internal.tag-link {
-  border: 1px solid color-mix(in srgb, var(--tone-ochre) 24%, white);
+  border: 1px solid var(--tag-border, var(--blog-border));
   border-radius: 10px;
-  background: var(--tone-ochre-soft);
-  color: var(--tone-ochre);
+  background: var(--tag-background, var(--lightgray));
+  color: var(--tag-foreground, var(--darkgray));
+  font-weight: 500;
 }
 
 body[data-slug="about"] article {
@@ -569,8 +628,7 @@ body[data-slug^="02-Posts/"] .page > #quartz-body .center > .page-footer {
   margin: -1.75rem auto 4rem;
   padding: 2rem 2.25rem;
   display: block;
-  border: 1px solid color-mix(in srgb, var(--tone-ochre) 24%, var(--blog-border));
-  border-top: 3px solid var(--tone-ochre);
+  border: 1px solid color-mix(in srgb, var(--dark) 24%, var(--blog-border));
   border-radius: 8px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.07);
   background: var(--blog-surface-solid);
@@ -635,7 +693,7 @@ body[data-slug^="02-Posts/"] .giscus-frame {
   margin: 0 0 1rem;
   padding-bottom: 0.35rem;
   border-bottom: 1px solid var(--blog-border);
-  color: var(--tone-teal);
+  color: var(--dark);
   font-size: 1.1rem;
   font-weight: 900;
   letter-spacing: 0;
@@ -645,7 +703,7 @@ body[data-slug^="02-Posts/"] .giscus-frame {
 
 .profile-section h3 {
   margin: 0 0 0.75rem;
-  color: var(--tone-teal);
+  color: var(--dark);
   font-size: 1.7rem;
   line-height: 1.25;
 }
@@ -705,7 +763,7 @@ body[data-slug^="02-Posts/"] .giscus-frame {
 .profile-skill-list h3,
 .profile-publication h3 {
   margin: 0;
-  color: var(--tone-teal);
+  color: var(--dark);
   font-size: 1.08rem;
 }
 

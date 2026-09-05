@@ -1,6 +1,7 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { FullSlug, resolveRelative } from "../util/path"
 import { getDate, formatDate } from "./Date"
+import { getTagColor } from "../util/tagColor"
 
 const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData }: QuartzComponentProps) => {
   const posts = allFiles
@@ -42,6 +43,7 @@ const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData }: QuartzComponent
             class="filter-button"
             href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
             data-tag={tag}
+            data-tag-color={getTagColor(tag)}
           >
             #{tag}
           </a>
@@ -56,17 +58,19 @@ const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData }: QuartzComponent
           return (
             <article class="blog-card" data-tags={postTags.join(" ")}>
               <a class="blog-card-link" href={resolveRelative(fileData.slug!, post.slug!)}>
+                {postTags.length > 0 && (
+                  <div class="blog-card-tags">
+                    {postTags.map((tag) => (
+                      <span data-tag-color={getTagColor(tag)}>#{tag}</span>
+                    ))}
+                  </div>
+                )}
                 <h2>{post.frontmatter?.title ?? post.slug}</h2>
                 <p class="blog-card-description">{post.frontmatter?.description ?? ""}</p>
                 <div class="blog-card-meta">
                   {date && (
                     <time datetime={date.toISOString()}>{formatDate(date, cfg.locale)}</time>
                   )}
-                </div>
-                <div class="blog-card-tags">
-                  {postTags.map((tag) => (
-                    <span>#{tag}</span>
-                  ))}
                 </div>
               </a>
             </article>
