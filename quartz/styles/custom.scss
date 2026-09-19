@@ -131,11 +131,11 @@ body {
   display: none;
 }
 
-body[data-slug^="02-Posts/"] .page > #quartz-body .center {
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) .page > #quartz-body .center {
   width: min(46rem, calc(100vw - 3rem));
 }
 
-body[data-slug^="02-Posts/"] article {
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article {
   font-size: 1.12rem;
   line-height: 1.78;
   margin: 1.35rem auto 4rem;
@@ -146,8 +146,8 @@ body[data-slug^="02-Posts/"] article {
   background: var(--blog-surface-solid);
 }
 
-body[data-slug^="02-Posts/"] article p,
-body[data-slug^="02-Posts/"] article li {
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article p,
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article li {
   line-height: 1.78;
 }
 
@@ -162,32 +162,32 @@ body[data-slug="02-Posts/RF-PA器件的工作方式"] article {
   }
 }
 
-body[data-slug^="02-Posts/"] article h2,
-body[data-slug^="02-Posts/"] article h2 > a[role="anchor"] {
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h2,
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h2 > a[role="anchor"] {
   color: var(--post-heading-2);
 }
 
-body[data-slug^="02-Posts/"] article h3,
-body[data-slug^="02-Posts/"] article h3 > a[role="anchor"] {
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h3,
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h3 > a[role="anchor"] {
   color: var(--post-heading-3);
 }
 
-body[data-slug^="02-Posts/"] article h4,
-body[data-slug^="02-Posts/"] article h4 > a[role="anchor"] {
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h4,
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h4 > a[role="anchor"] {
   color: var(--post-heading-4);
 }
 
-body[data-slug^="02-Posts/"] article h5,
-body[data-slug^="02-Posts/"] article h5 > a[role="anchor"] {
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h5,
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h5 > a[role="anchor"] {
   color: var(--post-heading-5);
 }
 
-body[data-slug^="02-Posts/"] article h6,
-body[data-slug^="02-Posts/"] article h6 > a[role="anchor"] {
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h6,
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h6 > a[role="anchor"] {
   color: var(--post-heading-6);
 }
 
-body[data-slug^="02-Posts/"] .article-title {
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) .article-title {
   color: var(--dark);
 }
 
@@ -207,7 +207,7 @@ body[data-slug="about"] article h3 > a[role="anchor"] {
   color: var(--dark);
 }
 
-body[data-slug^="02-Posts/"] article blockquote {
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article blockquote {
   margin: 1.25rem 0;
   padding: 0.9rem 1.1rem;
   border-left: 4px solid var(--post-heading-2);
@@ -216,7 +216,7 @@ body[data-slug^="02-Posts/"] article blockquote {
   font-size: 0.96em;
 }
 
-body[data-slug^="02-Posts/"] article blockquote p {
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article blockquote p {
   margin: 0;
 }
 
@@ -622,7 +622,11 @@ body[data-slug="about"] .giscus-frame {
   width: 100%;
 }
 
-body[data-slug^="02-Posts/"] .page > #quartz-body .center > .page-footer {
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"])
+  .page
+  > #quartz-body
+  .center
+  > .page-footer {
   box-sizing: border-box;
   width: 100%;
   margin: -1.75rem auto 4rem;
@@ -634,8 +638,8 @@ body[data-slug^="02-Posts/"] .page > #quartz-body .center > .page-footer {
   background: var(--blog-surface-solid);
 }
 
-body[data-slug^="02-Posts/"] .giscus,
-body[data-slug^="02-Posts/"] .giscus-frame {
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) .giscus,
+body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) .giscus-frame {
   width: 100%;
 }
 
@@ -895,7 +899,7 @@ footer {
     min-width: min(11rem, 100%);
   }
 
-  body[data-slug^="02-Posts/"] article {
+  body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article {
     padding: 1.4rem;
   }
 
@@ -904,7 +908,11 @@ footer {
     padding: 1rem;
   }
 
-  body[data-slug^="02-Posts/"] .page > #quartz-body .center > .page-footer {
+  body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"])
+    .page
+    > #quartz-body
+    .center
+    > .page-footer {
     margin-top: -2.5rem;
     padding: 1.25rem;
   }

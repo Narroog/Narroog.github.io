@@ -4,11 +4,14 @@ import { getDate, formatDate } from "./Date"
 import { getTagColor } from "../util/tagColor"
 
 const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData }: QuartzComponentProps) => {
+  const isMeditations = fileData.slug === "meditations"
+  const sectionSlug = isMeditations ? "meditations" : "blog"
+  const postsFolder = isMeditations ? "04-Meditations/" : "02-Posts/"
   const posts = allFiles
     .filter((page) => {
       const slug = page.slug ?? ""
       return (
-        slug.startsWith("02-Posts/") &&
+        slug.startsWith(postsFolder) &&
         !slug.endsWith("/README") &&
         page.frontmatter?.draft !== true
       )
@@ -26,14 +29,14 @@ const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData }: QuartzComponent
   return (
     <section class="blog-home" aria-labelledby="blog-title">
       <div class="blog-hero">
-        <h1 id="blog-title">博客文章</h1>
+        <h1 id="blog-title">{isMeditations ? "Meditations" : "博客文章"}</h1>
       </div>
 
-      <div class="blog-filter" aria-label="Blog tag filter">
+      <div class="blog-filter" aria-label={`${isMeditations ? "Meditations" : "Blog"} tag filter`}>
         <span class="filter-label">标签筛选</span>
         <a
           class="filter-button active"
-          href={resolveRelative(fileData.slug!, "blog" as FullSlug)}
+          href={resolveRelative(fileData.slug!, sectionSlug as FullSlug)}
           data-tag="all"
         >
           全部
@@ -51,6 +54,7 @@ const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData }: QuartzComponent
       </div>
 
       <div class="blog-grid">
+        {isMeditations && posts.length === 0 && <p>思考正在酝酿，敬请期待。</p>}
         {posts.map((post) => {
           const postTags = post.frontmatter?.tags ?? []
           const date = getDate(cfg, post)

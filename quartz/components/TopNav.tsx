@@ -5,6 +5,7 @@ const TopNav: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
   const current = fileData.slug ?? ("index" as FullSlug)
   const links = [
     { label: "Blog", slug: "blog" as FullSlug },
+    { label: "Meditations", slug: "meditations" as FullSlug },
     { label: "About", slug: "about" as FullSlug },
     { label: "Profile", slug: "profile" as FullSlug },
   ]
@@ -12,7 +13,7 @@ const TopNav: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
   return (
     <nav class="site-nav" aria-label="Primary navigation">
       <a class="site-brand" href={resolveRelative(current, "index" as FullSlug)}>
-        Narog's Blog
+        Narog
       </a>
       <div class="site-nav-links">
         {links.map((link) => {

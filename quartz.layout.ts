@@ -25,7 +25,8 @@ export const sharedPageComponents: SharedLayout = {
       }),
       condition: (page) =>
         page.fileData.slug === "about" ||
-        (page.fileData.slug?.startsWith("02-Posts/") === true &&
+        ((page.fileData.slug?.startsWith("02-Posts/") === true ||
+          page.fileData.slug?.startsWith("04-Meditations/") === true) &&
           !page.fileData.slug.endsWith("/README") &&
           !page.fileData.slug.endsWith("/index")),
     }),
@@ -43,6 +44,7 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) =>
         page.fileData.slug !== "index" &&
         page.fileData.slug !== "blog" &&
+        page.fileData.slug !== "meditations" &&
         page.fileData.slug !== "about" &&
         page.fileData.slug !== "profile",
     }),
@@ -52,7 +54,7 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.ConditionalRender({
       component: Component.BlogIndex(),
-      condition: (page) => page.fileData.slug === "blog",
+      condition: (page) => ["blog", "meditations"].includes(page.fileData.slug ?? ""),
     }),
     Component.ConditionalRender({
       component: Component.ProfilePage(),
@@ -63,6 +65,7 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) =>
         page.fileData.slug !== "index" &&
         page.fileData.slug !== "blog" &&
+        page.fileData.slug !== "meditations" &&
         page.fileData.slug !== "profile",
     }),
     Component.ConditionalRender({
@@ -70,6 +73,7 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) =>
         page.fileData.slug !== "index" &&
         page.fileData.slug !== "blog" &&
+        page.fileData.slug !== "meditations" &&
         page.fileData.slug !== "about" &&
         page.fileData.slug !== "profile",
     }),
@@ -78,6 +82,7 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) =>
         page.fileData.slug !== "index" &&
         page.fileData.slug !== "blog" &&
+        page.fileData.slug !== "meditations" &&
         page.fileData.slug !== "about" &&
         page.fileData.slug !== "profile",
     }),
