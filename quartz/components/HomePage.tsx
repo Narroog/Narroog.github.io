@@ -12,10 +12,7 @@ const HomePage: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
           <a class="home-button primary" href={resolveRelative(current, "blog" as FullSlug)}>
             Blog
           </a>
-          <a
-            class="home-button secondary"
-            href={resolveRelative(current, "meditations" as FullSlug)}
-          >
+          <a class="home-button primary" href={resolveRelative(current, "meditations" as FullSlug)}>
             Meditations
           </a>
           <a class="home-button secondary" href={resolveRelative(current, "about" as FullSlug)}>
