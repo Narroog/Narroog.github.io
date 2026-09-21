@@ -4,15 +4,37 @@ import { getDate, formatDate } from "./Date"
 import { getTagColor } from "../util/tagColor"
 
 const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData }: QuartzComponentProps) => {
-  const isMeditations = fileData.slug === "meditations"
-  const sectionSlug = isMeditations ? "meditations" : "blog"
-  const postsFolder = isMeditations ? "04-Meditations/" : "02-Posts/"
+  const sections: Record<string, { title: string; label: string; folder: string; empty: string }> =
+    {
+      blog: { title: "博客文章", label: "Blog", folder: "02-Posts/", empty: "" },
+      meditations: {
+        title: "Meditations",
+        label: "Meditations",
+        folder: "04-Meditations/",
+        empty: "思考正在酝酿，敬请期待。",
+      },
+      gallery: {
+        title: "Gallery",
+        label: "Gallery",
+        folder: "05-Gallery/",
+        empty: "作品正在整理，敬请期待。",
+      },
+      review: {
+        title: "Review",
+        label: "Review",
+        folder: "06-Review/",
+        empty: "评论正在整理，敬请期待。",
+      },
+    }
+  const sectionSlug = fileData.slug && sections[fileData.slug] ? fileData.slug : "blog"
+  const section = sections[sectionSlug]
   const posts = allFiles
     .filter((page) => {
       const slug = page.slug ?? ""
       return (
-        slug.startsWith(postsFolder) &&
+        slug.startsWith(section.folder) &&
         !slug.endsWith("/README") &&
+        !slug.endsWith("/index") &&
         page.frontmatter?.draft !== true
       )
     })
@@ -29,10 +51,10 @@ const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData }: QuartzComponent
   return (
     <section class="blog-home" aria-labelledby="blog-title">
       <div class="blog-hero">
-        <h1 id="blog-title">{isMeditations ? "Meditations" : "博客文章"}</h1>
+        <h1 id="blog-title">{section.title}</h1>
       </div>
 
-      <div class="blog-filter" aria-label={`${isMeditations ? "Meditations" : "Blog"} tag filter`}>
+      <div class="blog-filter" aria-label={`${section.label} tag filter`}>
         <span class="filter-label">标签筛选</span>
         <a
           class="filter-button active"
@@ -54,7 +76,7 @@ const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData }: QuartzComponent
       </div>
 
       <div class="blog-grid">
-        {isMeditations && posts.length === 0 && <p>思考正在酝酿，敬请期待。</p>}
+        {section.empty && posts.length === 0 && <p>{section.empty}</p>}
         {posts.map((post) => {
           const postTags = post.frontmatter?.tags ?? []
           const date = getDate(cfg, post)

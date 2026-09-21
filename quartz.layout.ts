@@ -26,7 +26,9 @@ export const sharedPageComponents: SharedLayout = {
       condition: (page) =>
         page.fileData.slug === "about" ||
         ((page.fileData.slug?.startsWith("02-Posts/") === true ||
-          page.fileData.slug?.startsWith("04-Meditations/") === true) &&
+          page.fileData.slug?.startsWith("04-Meditations/") === true ||
+          page.fileData.slug?.startsWith("05-Gallery/") === true ||
+          page.fileData.slug?.startsWith("06-Review/") === true) &&
           !page.fileData.slug.endsWith("/README") &&
           !page.fileData.slug.endsWith("/index")),
     }),
@@ -45,6 +47,8 @@ export const defaultContentPageLayout: PageLayout = {
         page.fileData.slug !== "index" &&
         page.fileData.slug !== "blog" &&
         page.fileData.slug !== "meditations" &&
+        page.fileData.slug !== "gallery" &&
+        page.fileData.slug !== "review" &&
         page.fileData.slug !== "about" &&
         page.fileData.slug !== "profile",
     }),
@@ -54,7 +58,8 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.ConditionalRender({
       component: Component.BlogIndex(),
-      condition: (page) => ["blog", "meditations"].includes(page.fileData.slug ?? ""),
+      condition: (page) =>
+        ["blog", "meditations", "gallery", "review"].includes(page.fileData.slug ?? ""),
     }),
     Component.ConditionalRender({
       component: Component.ProfilePage(),
@@ -66,6 +71,8 @@ export const defaultContentPageLayout: PageLayout = {
         page.fileData.slug !== "index" &&
         page.fileData.slug !== "blog" &&
         page.fileData.slug !== "meditations" &&
+        page.fileData.slug !== "gallery" &&
+        page.fileData.slug !== "review" &&
         page.fileData.slug !== "profile",
     }),
     Component.ConditionalRender({
@@ -74,6 +81,8 @@ export const defaultContentPageLayout: PageLayout = {
         page.fileData.slug !== "index" &&
         page.fileData.slug !== "blog" &&
         page.fileData.slug !== "meditations" &&
+        page.fileData.slug !== "gallery" &&
+        page.fileData.slug !== "review" &&
         page.fileData.slug !== "about" &&
         page.fileData.slug !== "profile",
     }),
@@ -83,6 +92,8 @@ export const defaultContentPageLayout: PageLayout = {
         page.fileData.slug !== "index" &&
         page.fileData.slug !== "blog" &&
         page.fileData.slug !== "meditations" &&
+        page.fileData.slug !== "gallery" &&
+        page.fileData.slug !== "review" &&
         page.fileData.slug !== "about" &&
         page.fileData.slug !== "profile",
     }),

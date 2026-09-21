@@ -9,6 +9,14 @@
   src: url("./static/fonts/manrope/manrope-latin.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./static/fonts/fraunces/fraunces-600.ttf") format("truetype");
+}
+
 :root {
   --brand-font: "Manrope", var(--headerFont);
   --blog-page-bg: #fafafa;
@@ -131,11 +139,25 @@ body {
   display: none;
 }
 
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) .page > #quartz-body .center {
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  .page
+  > #quartz-body
+  .center {
   width: min(46rem, calc(100vw - 3rem));
 }
 
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article {
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article {
   font-size: 1.12rem;
   line-height: 1.78;
   margin: 1.35rem auto 4rem;
@@ -146,8 +168,22 @@ body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article {
   background: var(--blog-surface-solid);
 }
 
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article p,
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article li {
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article
+  p,
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article
+  li {
   line-height: 1.78;
 }
 
@@ -162,32 +198,113 @@ body[data-slug="02-Posts/RF-PA器件的工作方式"] article {
   }
 }
 
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h2,
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h2 > a[role="anchor"] {
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article
+  h2,
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article
+  h2
+  > a[role="anchor"] {
   color: var(--post-heading-2);
 }
 
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h3,
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h3 > a[role="anchor"] {
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article
+  h3,
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article
+  h3
+  > a[role="anchor"] {
   color: var(--post-heading-3);
 }
 
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h4,
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h4 > a[role="anchor"] {
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article
+  h4,
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article
+  h4
+  > a[role="anchor"] {
   color: var(--post-heading-4);
 }
 
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h5,
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h5 > a[role="anchor"] {
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article
+  h5,
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article
+  h5
+  > a[role="anchor"] {
   color: var(--post-heading-5);
 }
 
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h6,
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article h6 > a[role="anchor"] {
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article
+  h6,
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article
+  h6
+  > a[role="anchor"] {
   color: var(--post-heading-6);
 }
 
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) .article-title {
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  .article-title {
   color: var(--dark);
 }
 
@@ -207,7 +324,14 @@ body[data-slug="about"] article h3 > a[role="anchor"] {
   color: var(--dark);
 }
 
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article blockquote {
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article
+  blockquote {
   margin: 1.25rem 0;
   padding: 0.9rem 1.1rem;
   border-left: 4px solid var(--post-heading-2);
@@ -216,7 +340,15 @@ body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article blockq
   font-size: 0.96em;
 }
 
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article blockquote p {
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  article
+  blockquote
+  p {
   margin: 0;
 }
 
@@ -243,6 +375,9 @@ body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article blockq
 }
 
 .site-nav {
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  padding-block: 0.75rem;
   position: relative;
   z-index: 20;
   width: min(84rem, calc(100vw - 3rem));
@@ -264,15 +399,18 @@ header {
 }
 
 .site-brand {
-  font-family: var(--brand-font);
-  font-size: 1.45rem;
-  font-weight: 800;
+  flex-shrink: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.625rem;
+  font-style: normal;
+  font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 1.2;
   color: var(--dark);
 }
 
 .site-nav-links {
+  flex-wrap: wrap;
   display: flex;
   gap: clamp(1rem, 4vw, 3rem);
 }
@@ -622,7 +760,12 @@ body[data-slug="about"] .giscus-frame {
   width: 100%;
 }
 
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"])
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
   .page
   > #quartz-body
   .center
@@ -638,8 +781,20 @@ body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"])
   background: var(--blog-surface-solid);
 }
 
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) .giscus,
-body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) .giscus-frame {
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  .giscus,
+body:is(
+    [data-slug^="02-Posts/"],
+    [data-slug^="04-Meditations/"],
+    [data-slug^="05-Gallery/"],
+    [data-slug^="06-Review/"]
+  )
+  .giscus-frame {
   width: 100%;
 }
 
@@ -899,7 +1054,13 @@ footer {
     min-width: min(11rem, 100%);
   }
 
-  body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"]) article {
+  body:is(
+      [data-slug^="02-Posts/"],
+      [data-slug^="04-Meditations/"],
+      [data-slug^="05-Gallery/"],
+      [data-slug^="06-Review/"]
+    )
+    article {
     padding: 1.4rem;
   }
 
@@ -908,7 +1069,12 @@ footer {
     padding: 1rem;
   }
 
-  body:is([data-slug^="02-Posts/"], [data-slug^="04-Meditations/"])
+  body:is(
+      [data-slug^="02-Posts/"],
+      [data-slug^="04-Meditations/"],
+      [data-slug^="05-Gallery/"],
+      [data-slug^="06-Review/"]
+    )
     .page
     > #quartz-body
     .center

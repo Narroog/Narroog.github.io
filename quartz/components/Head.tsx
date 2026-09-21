@@ -42,6 +42,13 @@ export default (() => {
         <meta charSet="utf-8" />
         <link
           rel="preload"
+          href={joinSegments(baseDir, "static/fonts/fraunces/fraunces-600.ttf")}
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
           href={joinSegments(baseDir, "static/fonts/manrope/manrope-latin.woff2")}
           as="font"
           type="font/woff2"
