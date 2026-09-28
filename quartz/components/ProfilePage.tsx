@@ -1,6 +1,7 @@
 import { QuartzComponent, QuartzComponentConstructor } from "./types"
+import { FullSlug, resolveRelative } from "../util/path"
 
-const ProfilePage: QuartzComponent = () => {
+const ProfilePage: QuartzComponent = ({ fileData }) => {
   return (
     <section class="profile-page">
       <header class="profile-hero">
@@ -87,7 +88,16 @@ const ProfilePage: QuartzComponent = () => {
         <article class="profile-publication">
           <div class="profile-publication-year">2026</div>
           <div>
-            <h3>Modulating self-heating effects in FinFETs through doping engineering</h3>
+            <h3>
+              <a
+                href={resolveRelative(fileData.slug!, "论文出版稿.pdf" as FullSlug)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Modulating self-heating effects in FinFETs through doping engineering (PDF)"
+              >
+                Modulating self-heating effects in FinFETs through doping engineering
+              </a>
+            </h3>
             <p>
               <strong>C.K. Deng</strong>, Z.L. Tang, Y. Shen, B.Y. Cao.{" "}
               <em>Applied Physics Letters</em>, 2026, 128(6): 063502.
