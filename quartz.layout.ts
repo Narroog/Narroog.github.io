@@ -46,6 +46,7 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) =>
         page.fileData.slug !== "index" &&
         page.fileData.slug !== "blog" &&
+        page.fileData.slug !== "research" &&
         page.fileData.slug !== "meditations" &&
         page.fileData.slug !== "gallery" &&
         page.fileData.slug !== "review" &&
@@ -59,7 +60,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ConditionalRender({
       component: Component.BlogIndex(),
       condition: (page) =>
-        ["blog", "meditations", "gallery", "review"].includes(page.fileData.slug ?? ""),
+        ["blog", "research", "meditations", "gallery", "review"].includes(page.fileData.slug ?? ""),
     }),
     Component.ConditionalRender({
       component: Component.ProfilePage(),
@@ -70,6 +71,7 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) =>
         page.fileData.slug !== "index" &&
         page.fileData.slug !== "blog" &&
+        page.fileData.slug !== "research" &&
         page.fileData.slug !== "meditations" &&
         page.fileData.slug !== "gallery" &&
         page.fileData.slug !== "review" &&
@@ -80,6 +82,7 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) =>
         page.fileData.slug !== "index" &&
         page.fileData.slug !== "blog" &&
+        page.fileData.slug !== "research" &&
         page.fileData.slug !== "meditations" &&
         page.fileData.slug !== "gallery" &&
         page.fileData.slug !== "review" &&
@@ -91,6 +94,7 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) =>
         page.fileData.slug !== "index" &&
         page.fileData.slug !== "blog" &&
+        page.fileData.slug !== "research" &&
         page.fileData.slug !== "meditations" &&
         page.fileData.slug !== "gallery" &&
         page.fileData.slug !== "review" &&

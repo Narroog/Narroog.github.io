@@ -1,5 +1,5 @@
 ---
 title: Blog
-description: 记录技术探索、研究笔记与生活思考。
+description: Research、Meditations、Gallery 与 Review，记录研究、思考、兴趣与评论。
 draft: false
 ---
