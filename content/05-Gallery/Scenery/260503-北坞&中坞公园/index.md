@@ -10,5 +10,3 @@ draft: false
 ![北坞&中坞公园 · 1](IMG_2420.webp)
 
 ![北坞&中坞公园 · 2](IMG_2422.webp)
-
-[[05-Gallery/Scenery/index|返回风景目录]] · [[gallery#gallery-scenery|返回 Gallery]]

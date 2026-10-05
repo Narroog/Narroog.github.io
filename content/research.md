@@ -1,5 +1,5 @@
 ---
 title: Research
-description: 记录科研思考、研究方法与专业知识。
+description: 对科研的方法与思考
 draft: false
 ---

@@ -1,5 +1,5 @@
 ---
 title: Review
-description: 记录评论与回顾。
+description: 对他人作品的评述
 draft: false
 ---

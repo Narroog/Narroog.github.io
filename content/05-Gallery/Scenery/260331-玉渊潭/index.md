@@ -10,5 +10,3 @@ draft: false
 ![玉渊潭 · 1](IMG_2239.webp)
 
 ![玉渊潭 · 2](IMG_2247.webp)
-
-[[05-Gallery/Scenery/index|返回风景目录]] · [[gallery#gallery-scenery|返回 Gallery]]

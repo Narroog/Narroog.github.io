@@ -10,23 +10,23 @@ import { toString } from "hast-util-to-string"
 const blogSections = {
   research: {
     title: "Research",
-    label: "科研与方法",
+    label: "研究",
     folder: "02-Posts/",
-    description: "记录科研思考、研究方法与工程知识，探索 AI 如何帮助研究，以及知识如何转化为实践。",
+    description: "对科研的方法与思考",
     empty: "暂无已发布文章。",
   },
   meditations: {
     title: "Meditations",
-    label: "思考与随想",
+    label: "沉思",
     folder: "04-Meditations/",
-    description: "从日常观察出发，追问创造、技术与认知，记录那些值得停下来思考的问题。",
+    description: "一些抽象的胡思乱想",
     empty: "暂无已发布文章。",
   },
   review: {
     title: "Review",
-    label: "评论与回顾",
+    label: "评论",
     folder: "06-Review/",
-    description: "整理阅读、体验与实践后的评论和回顾，梳理收获、判断，以及值得继续讨论的问题。",
+    description: "对他人作品的评述",
     empty: "暂无已发布文章。",
   },
 }

@@ -10,5 +10,3 @@ draft: false
 ![圆明园西侧 · 1](IMG_2709.webp)
 
 ![圆明园西侧 · 2](IMG_2710.webp)
-
-[[05-Gallery/Scenery/index|返回风景目录]] · [[gallery#gallery-scenery|返回 Gallery]]
