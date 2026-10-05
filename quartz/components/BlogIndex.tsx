@@ -5,40 +5,108 @@ import { visit } from "unist-util-visit"
 import { getDate, formatDate } from "./Date"
 import { CoffeeCards, coffeeStyle } from "./Coffee"
 import { getTagColor } from "../util/tagColor"
+import { toString } from "hast-util-to-string"
+
+const blogSections = {
+  research: {
+    title: "Research",
+    label: "科研与方法",
+    folder: "02-Posts/",
+    description: "记录科研思考、研究方法与工程知识，探索 AI 如何帮助研究，以及知识如何转化为实践。",
+    empty: "暂无已发布文章。",
+  },
+  meditations: {
+    title: "Meditations",
+    label: "思考与随想",
+    folder: "04-Meditations/",
+    description: "从日常观察出发，追问创造、技术与认知，记录那些值得停下来思考的问题。",
+    empty: "暂无已发布文章。",
+  },
+  review: {
+    title: "Review",
+    label: "评论与回顾",
+    folder: "06-Review/",
+    description: "整理阅读、体验与实践后的评论和回顾，梳理收获、判断，以及值得继续讨论的问题。",
+    empty: "暂无已发布文章。",
+  },
+}
 
 const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
   const { allFiles, cfg, fileData, ctx } = props
+  const publishedPosts = (folder: string) =>
+    allFiles
+      .filter(
+        (page) =>
+          page.slug?.startsWith(folder) &&
+          !page.slug.endsWith("/README") &&
+          !page.slug.endsWith("/index") &&
+          page.frontmatter?.draft !== true,
+      )
+      .sort((a, b) => (getDate(cfg, b)?.getTime() ?? 0) - (getDate(cfg, a)?.getTime() ?? 0))
   if (fileData.slug === "blog") {
     return (
       <section class="blog-home" aria-labelledby="blog-title">
         <div class="blog-hero">
           <h1 id="blog-title">Blog</h1>
+          <p>研究、思考与回顾，从三个方向记录探索。</p>
         </div>
-        <nav class="gallery-categories" aria-label="Blog sections">
-          {["Research", "Meditations", "Gallery", "Review"].map((section) => (
-            <a
-              class="gallery-category"
-              href={resolveRelative(fileData.slug!, section.toLowerCase() as FullSlug)}
-            >
-              <span>{section}</span>
-              <span class="blog-section-arrow" aria-hidden="true">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  focusable="false"
+        <div class="blog-section-grid">
+          {Object.entries(blogSections).map(([slug, section]) => {
+            const posts = publishedPosts(section.folder)
+            return (
+              <section class="blog-overview-card" aria-labelledby={`blog-${slug}`}>
+                <div class="blog-overview-label">
+                  <span>{section.label}</span>
+                  <span>{posts.length} 篇文章</span>
+                </div>
+                <h2 id={`blog-${slug}`}>{section.title}</h2>
+                <p class="blog-overview-description">{section.description}</p>
+                <div class="blog-overview-preview">
+                  <h3>近期文章</h3>
+                  {posts.length === 0 ? (
+                    <p class="blog-overview-empty">{section.empty}</p>
+                  ) : (
+                    <ul class="blog-preview-list">
+                      {posts.slice(0, 3).map((post) => {
+                        const date = getDate(cfg, post)
+                        const paragraph = post.htmlAst?.children.find(
+                          (child) => child.type === "element" && child.tagName === "p",
+                        )
+                        const excerpt =
+                          post.frontmatter?.description?.trim() ||
+                          (paragraph ? toString(paragraph) : "")
+                        return (
+                          <li>
+                            <a
+                              class="blog-preview-link internal"
+                              href={resolveRelative(fileData.slug!, post.slug!)}
+                            >
+                              <h4>{post.frontmatter?.title ?? post.slug}</h4>
+                              {excerpt && (
+                                <p>{excerpt.length > 90 ? excerpt.slice(0, 90) + "…" : excerpt}</p>
+                              )}
+                              {date && (
+                                <time datetime={date.toISOString()}>
+                                  {formatDate(date, cfg.locale)}
+                                </time>
+                              )}
+                            </a>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  )}
+                </div>
+                <a
+                  class="blog-section-button internal"
+                  href={resolveRelative(fileData.slug!, slug as FullSlug)}
                 >
-                  <path d="m9 18 6-6-6-6" />
-                </svg>
-              </span>
-            </a>
-          ))}
-        </nav>
+                  进入 {section.title} <span aria-hidden="true">→</span>
+                </a>
+              </section>
+            )
+          })}
+        </div>
       </section>
     )
   }
@@ -209,45 +277,11 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
     )
   }
 
-  const sections: Record<string, { title: string; label: string; folder: string; empty: string }> =
-    {
-      research: { title: "Research", label: "Research", folder: "02-Posts/", empty: "" },
-      meditations: {
-        title: "Meditations",
-        label: "Meditations",
-        folder: "04-Meditations/",
-        empty: "思考正在酝酿，敬请期待。",
-      },
-      gallery: {
-        title: "Gallery",
-        label: "Gallery",
-        folder: "05-Gallery/",
-        empty: "作品正在整理，敬请期待。",
-      },
-      review: {
-        title: "Review",
-        label: "Review",
-        folder: "06-Review/",
-        empty: "评论正在整理，敬请期待。",
-      },
-    }
-  const sectionSlug = fileData.slug && sections[fileData.slug] ? fileData.slug : "research"
-  const section = sections[sectionSlug]
-  const posts = allFiles
-    .filter((page) => {
-      const slug = page.slug ?? ""
-      return (
-        slug.startsWith(section.folder) &&
-        !slug.endsWith("/README") &&
-        !slug.endsWith("/index") &&
-        page.frontmatter?.draft !== true
-      )
-    })
-    .sort((a, b) => {
-      const dateA = getDate(cfg, a)?.getTime() ?? 0
-      const dateB = getDate(cfg, b)?.getTime() ?? 0
-      return dateB - dateA
-    })
+  const sectionSlug = (
+    fileData.slug && fileData.slug in blogSections ? fileData.slug : "research"
+  ) as keyof typeof blogSections
+  const section = blogSections[sectionSlug]
+  const posts = publishedPosts(section.folder)
 
   const tags = Array.from(
     new Set(posts.flatMap((post) => post.frontmatter?.tags ?? []).filter(Boolean)),
