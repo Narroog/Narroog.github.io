@@ -3,9 +3,11 @@ import { FullSlug, resolveRelative } from "../util/path"
 import { htmlToJsx } from "../util/jsx"
 import { visit } from "unist-util-visit"
 import { getDate, formatDate } from "./Date"
+import { CoffeeCards, coffeeStyle } from "./Coffee"
 import { getTagColor } from "../util/tagColor"
 
-const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData, ctx }: QuartzComponentProps) => {
+const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
+  const { allFiles, cfg, fileData, ctx } = props
   if (fileData.slug === "blog") {
     return (
       <section class="blog-home" aria-labelledby="blog-title">
@@ -49,6 +51,13 @@ const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData, ctx }: QuartzComp
         <div class="gallery-exhibition">
           {["Coffee", "Scenery", "Song"].map((category) => {
             const prefix = `05-Gallery/${category}/`
+            if (category === "Coffee")
+              return (
+                <section class="gallery-section" aria-labelledby="gallery-coffee">
+                  <h2 id="gallery-coffee">Coffee</h2>
+                  <CoffeeCards {...props} />
+                </section>
+              )
             const media = ctx.allSlugs
               .filter(
                 (slug) =>
@@ -236,6 +245,8 @@ const BlogIndex: QuartzComponent = ({ allFiles, cfg, fileData, ctx }: QuartzComp
     </section>
   )
 }
+
+BlogIndex.css = coffeeStyle
 
 BlogIndex.afterDOMLoaded = `
 function setupBlogFilters() {

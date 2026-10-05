@@ -1,0 +1,308 @@
+.coffee-collection,
+.coffee-detail {
+  --coffee-accent: color-mix(in srgb, var(--dark) 65%, #bb8759);
+  --coffee-wash: color-mix(in srgb, #bb8759 9%, var(--blog-surface-solid));
+}
+
+.coffee-intro {
+  margin: -0.5rem 0 1.5rem;
+  color: var(--gray);
+  font-size: 0.95rem;
+}
+.coffee-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+a.coffee-card.internal {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--blog-border);
+  border-radius: 18px;
+  background: var(--blog-surface-solid);
+  padding: 0;
+  line-height: 1.5;
+  color: var(--dark);
+  font-weight: 400;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+a.coffee-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px var(--blog-shadow);
+}
+.coffee-card:focus-visible,
+.coffee-back:focus-visible {
+  outline: 2px solid var(--coffee-accent);
+  outline-offset: 5px;
+}
+.coffee-card-image {
+  position: relative;
+  height: 250px;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background: var(--coffee-wash);
+}
+.coffee-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin: 0;
+}
+.coffee-roast {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--blog-border);
+  border-radius: 20px;
+  background: var(--blog-surface-solid);
+  font-size: 0.75rem;
+}
+.coffee-card-copy {
+  padding: 1.5rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.coffee-brand {
+  margin: 0 0 0.6rem;
+  color: var(--coffee-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.coffee-card h3 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+.coffee-flavors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.coffee-flavors span {
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  background: var(--coffee-wash);
+  color: var(--coffee-accent);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+.coffee-card-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  font-size: 0.9rem;
+}
+.coffee-card-rating {
+  color: var(--coffee-accent);
+  font-weight: 600;
+}
+.coffee-card-action {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--blog-border);
+  color: var(--gray);
+  font-size: 0.8rem;
+}
+
+body[data-slug^="05-Gallery/Coffee/"]:has(.coffee-detail) {
+  width: 100%;
+}
+body[data-slug^="05-Gallery/Coffee/"]:has(.coffee-detail) .page > #quartz-body .center {
+  width: min(66rem, calc(100vw - 3rem));
+}
+body[data-slug^="05-Gallery/Coffee/"]:has(.coffee-detail) .page-header > .popover-hint,
+body[data-slug^="05-Gallery/Coffee/"]:has(.coffee-detail)
+  .page
+  > #quartz-body
+  .center
+  > .page-footer {
+  display: none;
+}
+body[data-slug^="05-Gallery/Coffee/"] article.coffee-detail {
+  margin: 2rem auto 4rem;
+  padding: 2.5rem;
+  font-size: 1rem;
+  border-radius: 18px;
+}
+a.coffee-back.internal {
+  display: inline-block;
+  color: var(--gray);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  background: none;
+  padding: 0;
+}
+.coffee-detail-hero {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: 3rem;
+}
+.coffee-detail-image {
+  height: 360px;
+  padding: 1.5rem;
+  border-radius: 14px;
+  background: var(--coffee-wash);
+}
+.coffee-detail-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin: 0;
+}
+.coffee-detail-heading h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+}
+.coffee-product {
+  margin: 0.75rem 0 1.25rem;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+.coffee-rating-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+.coffee-score {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--blog-border);
+  border-radius: 10px;
+}
+.coffee-score > span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+.coffee-score strong {
+  display: block;
+  color: var(--coffee-accent);
+  font-size: 2.1rem;
+  line-height: 1.5;
+}
+.coffee-score small {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--gray);
+}
+.coffee-scale {
+  color: var(--gray);
+  font-size: 0.75rem;
+  margin-bottom: 0;
+}
+.coffee-facts,
+.coffee-tasting {
+  margin-top: 2.75rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--blog-border);
+}
+.coffee-detail h2 {
+  margin: 0 0 1.5rem;
+  font-size: 1.35rem;
+}
+.coffee-detail h2 > span {
+  margin-right: 0.65rem;
+  color: var(--coffee-accent);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.coffee-facts dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 2rem;
+  margin: 0;
+}
+.coffee-facts dl > div {
+  min-width: 0;
+}
+.coffee-facts dt,
+.coffee-packaging-flavor > span {
+  color: var(--gray);
+  font-size: 0.8rem;
+}
+.coffee-facts dd {
+  margin: 0.35rem 0 0;
+  overflow-wrap: anywhere;
+}
+.coffee-packaging-flavor {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: var(--coffee-wash);
+  border-radius: 10px;
+}
+.coffee-packaging-flavor p {
+  margin: 0.35rem 0 0;
+}
+.coffee-tasting-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.coffee-tasting-grid > div {
+  padding-left: 1.25rem;
+  border-left: 2px solid color-mix(in srgb, #bb8759 45%, var(--blog-border));
+}
+.coffee-detail .coffee-tasting h3 {
+  margin: 0 0 0.4rem;
+  color: var(--coffee-accent);
+  font-size: 0.85rem;
+}
+.coffee-tasting p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .coffee-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .coffee-detail-hero {
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 640px) {
+  .coffee-grid {
+    grid-template-columns: 1fr;
+  }
+  .coffee-card-image {
+    height: 230px;
+  }
+  body[data-slug^="05-Gallery/Coffee/"]:has(.coffee-detail) .page > #quartz-body .center {
+    width: calc(100% - 1.25rem);
+  }
+  body[data-slug^="05-Gallery/Coffee/"] article.coffee-detail {
+    padding: 1.25rem;
+    margin-top: 1rem;
+  }
+  .coffee-back {
+    margin-bottom: 1.25rem;
+  }
+  .coffee-detail-hero {
+    grid-template-columns: 1fr;
+  }
+  .coffee-detail-image {
+    height: 260px;
+  }
+  .coffee-facts dl {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  a.coffee-card {
+    transition: none;
+  }
+}
