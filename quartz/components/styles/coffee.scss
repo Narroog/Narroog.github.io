@@ -33,8 +33,7 @@ a.coffee-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 30px var(--blog-shadow);
 }
-.coffee-card:focus-visible,
-.coffee-back:focus-visible {
+.coffee-card:focus-visible {
   outline: 2px solid var(--coffee-accent);
   outline-offset: 5px;
 }
@@ -122,7 +121,6 @@ body[data-slug^="05-Gallery/Coffee/"]:has(.coffee-detail) {
 body[data-slug^="05-Gallery/Coffee/"]:has(.coffee-detail) .page > #quartz-body .center {
   width: min(66rem, calc(100vw - 3rem));
 }
-body[data-slug^="05-Gallery/Coffee/"]:has(.coffee-detail) .page-header > .popover-hint,
 body[data-slug^="05-Gallery/Coffee/"]:has(.coffee-detail)
   .page
   > #quartz-body
@@ -135,15 +133,6 @@ body[data-slug^="05-Gallery/Coffee/"] article.coffee-detail {
   padding: 2.5rem;
   font-size: 1rem;
   border-radius: 18px;
-}
-a.coffee-back.internal {
-  display: inline-block;
-  color: var(--gray);
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin-bottom: 2rem;
-  background: none;
-  padding: 0;
 }
 .coffee-detail-hero {
   display: grid;
@@ -287,9 +276,6 @@ a.coffee-back.internal {
   body[data-slug^="05-Gallery/Coffee/"] article.coffee-detail {
     padding: 1.25rem;
     margin-top: 1rem;
-  }
-  .coffee-back {
-    margin-bottom: 1.25rem;
   }
   .coffee-detail-hero {
     grid-template-columns: 1fr;

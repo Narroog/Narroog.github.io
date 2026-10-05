@@ -114,12 +114,6 @@ export function CoffeeDetail({ fileData }: QuartzComponentProps) {
   const record = coffeeRecord(fileData)
   return (
     <article class="coffee-detail popover-hint">
-      <a
-        class="coffee-back internal"
-        href={`${resolveRelative(fileData.slug!, "gallery" as FullSlug)}#gallery-coffee`}
-      >
-        ← 返回 Coffee
-      </a>
       <div class="coffee-detail-hero">
         <div class="coffee-detail-image">
           <img

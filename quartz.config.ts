@@ -15,7 +15,15 @@ const config: QuartzConfig = {
     analytics: null,
     locale: "zh-CN",
     baseUrl: "narroog.github.io",
-    ignorePatterns: ["private", "templates", "99-Templates", ".obsidian"],
+    ignorePatterns: [
+      "private",
+      "templates",
+      "99-Templates",
+      ".obsidian",
+      "05-Gallery/Scenery/**/*.heic",
+      "05-Gallery/Scenery/**/*.HEIC",
+      "05-Gallery/Scenery/**/描述.txt",
+    ],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "local",

@@ -72,15 +72,79 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
                 page.frontmatter?.draft !== true &&
                 page.htmlAst?.children.some((child) => child.type === "element"),
             )
+            const sceneryAlbums =
+              category === "Scenery"
+                ? Array.from(new Set(media.map((slug) => slug.slice(0, slug.lastIndexOf("/")))))
+                    .sort((a, b) => b.localeCompare(a, cfg.locale, { numeric: true }))
+                    .map((folder) => {
+                      const page = allFiles.find((page) => page.slug === `${folder}/index`)
+                      const name = folder.split("/").pop()!
+                      const date = /^(\d{2})(\d{2})(\d{2})-/.exec(name)
+                      return {
+                        folder,
+                        page,
+                        title: page?.frontmatter?.title ?? name.replace(/^\d{6}-/, ""),
+                        date: date ? `20${date[1]}-${date[2]}-${date[3]}` : undefined,
+                        photos: media.filter(
+                          (slug) => slug.slice(0, slug.lastIndexOf("/")) === folder,
+                        ),
+                      }
+                    })
+                : []
             return (
               <section
                 class="gallery-section"
                 aria-labelledby={`gallery-${category.toLowerCase()}`}
               >
                 <h2 id={`gallery-${category.toLowerCase()}`}>{category}</h2>
+                {sceneryAlbums.length > 0 && (
+                  <div class="scenery-albums">
+                    <p class="scenery-summary">
+                      {sceneryAlbums.length} 组风景 · {media.length} 张照片
+                    </p>
+                    {sceneryAlbums.map((album) => (
+                      <article class="scenery-album" aria-label={album.title}>
+                        <div class="scenery-album-header">
+                          <h3>
+                            {album.page ? (
+                              <a href={resolveRelative(fileData.slug!, album.page.slug!)}>
+                                {album.title}
+                              </a>
+                            ) : (
+                              album.title
+                            )}
+                          </h3>
+                          {album.date && (
+                            <time datetime={album.date}>
+                              <span>拍摄日期</span> {album.date.replaceAll("-", ".")}
+                            </time>
+                          )}
+                        </div>
+                        <div class="gallery-media-grid scenery-photo-grid">
+                          {album.photos.map((slug, index) => {
+                            const src = resolveRelative(fileData.slug!, slug)
+                            const title = `${album.title} · ${index + 1}`
+                            return (
+                              <figure class="gallery-media">
+                                <a
+                                  href={src}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  aria-label={`查看大图：${title}`}
+                                >
+                                  <img src={src} alt={title} loading="lazy" decoding="async" />
+                                </a>
+                              </figure>
+                            )
+                          })}
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                )}
                 {media.length === 0 && notes.length === 0 && <p class="gallery-empty">暂无内容</p>}
                 <div class="gallery-media-grid">
-                  {media.map((slug) => {
+                  {(category === "Scenery" ? [] : media).map((slug) => {
                     const src = resolveRelative(fileData.slug!, slug)
                     const title = slug
                       .split("/")
@@ -114,27 +178,29 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
                     )
                   })}
                 </div>
-                {notes.map((page) => {
-                  const rebasedTree = structuredClone(page.htmlAst!)
-                  const base = new URL(`${page.slug}.html`, "https://gallery.invalid/")
-                  visit(rebasedTree, "element", (node) => {
-                    for (const attr of ["src", "href", "poster"]) {
-                      const value = node.properties[attr]
-                      if (typeof value !== "string" || !/^\.{1,2}\//.test(value)) continue
-                      const target = new URL(value, base)
-                      node.properties[attr] =
-                        resolveRelative(fileData.slug!, target.pathname.slice(1) as FullSlug) +
-                        target.search +
-                        target.hash
-                    }
-                  })
-                  return (
-                    <div class="gallery-note">
-                      {!page.slug!.endsWith("/index") && <h3>{page.frontmatter?.title}</h3>}
-                      {htmlToJsx(page.filePath!, rebasedTree)}
-                    </div>
-                  )
-                })}
+                {notes
+                  .filter((page) => category !== "Scenery" || !page.slug!.endsWith("/index"))
+                  .map((page) => {
+                    const rebasedTree = structuredClone(page.htmlAst!)
+                    const base = new URL(`${page.slug}.html`, "https://gallery.invalid/")
+                    visit(rebasedTree, "element", (node) => {
+                      for (const attr of ["src", "href", "poster"]) {
+                        const value = node.properties[attr]
+                        if (typeof value !== "string" || !/^\.{1,2}\//.test(value)) continue
+                        const target = new URL(value, base)
+                        node.properties[attr] =
+                          resolveRelative(fileData.slug!, target.pathname.slice(1) as FullSlug) +
+                          target.search +
+                          target.hash
+                      }
+                    })
+                    return (
+                      <div class="gallery-note">
+                        {!page.slug!.endsWith("/index") && <h3>{page.frontmatter?.title}</h3>}
+                        {htmlToJsx(page.filePath!, rebasedTree)}
+                      </div>
+                    )
+                  })}
               </section>
             )
           })}

@@ -1,5 +1,6 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import { isCoffeePage } from "./quartz/components/Coffee"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -75,7 +76,8 @@ export const defaultContentPageLayout: PageLayout = {
         page.fileData.slug !== "meditations" &&
         page.fileData.slug !== "gallery" &&
         page.fileData.slug !== "review" &&
-        page.fileData.slug !== "profile",
+        page.fileData.slug !== "profile" &&
+        !isCoffeePage(page.fileData.slug),
     }),
     Component.ConditionalRender({
       component: Component.ContentMeta(),
@@ -87,7 +89,9 @@ export const defaultContentPageLayout: PageLayout = {
         page.fileData.slug !== "gallery" &&
         page.fileData.slug !== "review" &&
         page.fileData.slug !== "about" &&
-        page.fileData.slug !== "profile",
+        page.fileData.slug !== "profile" &&
+        !page.fileData.slug?.startsWith("05-Gallery/Scenery/") &&
+        !isCoffeePage(page.fileData.slug),
     }),
     Component.ConditionalRender({
       component: Component.TagList(),
@@ -108,7 +112,18 @@ export const defaultContentPageLayout: PageLayout = {
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  beforeBody: [
+    Component.BackHome(),
+    Component.ConditionalRender({
+      component: Component.ArticleTitle(),
+      condition: (page) => !isCoffeePage(page.fileData.slug),
+    }),
+    Component.ConditionalRender({
+      component: Component.ContentMeta(),
+      condition: (page) =>
+        !page.fileData.slug?.startsWith("05-Gallery/Scenery/") && !isCoffeePage(page.fileData.slug),
+    }),
+  ],
   left: [],
   right: [],
 }
