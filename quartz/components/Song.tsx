@@ -88,6 +88,7 @@ export function SongCards(props: QuartzComponentProps) {
           <h3>
             <a
               class="song-card-link internal"
+              data-no-popover="true"
               href={resolveRelative(props.fileData.slug!, song.page.slug!)}
             >
               {song.title}
