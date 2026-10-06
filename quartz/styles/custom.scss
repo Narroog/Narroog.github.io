@@ -715,7 +715,7 @@ a.blog-section-button.internal {
 .home-actions {
   contain: inline-size;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.15rem;
   margin-top: 3rem;
 }
@@ -754,6 +754,13 @@ a.blog-section-button.internal {
   backdrop-filter: blur(18px);
 }
 
+.home-button.gallery {
+  border: 1px solid #d4d4d4;
+  box-shadow: 0 0.9rem 2rem rgba(0, 0, 0, 0.06);
+  background: #e5e5e5;
+  color: #333;
+}
+
 .home-button:hover {
   transform: translateY(-0.12rem);
 }
@@ -766,6 +773,11 @@ a.blog-section-button.internal {
 .home-button.secondary:hover {
   background: var(--blog-surface-solid);
   color: var(--blog-nav-deep);
+}
+
+.home-button.gallery:hover {
+  background: #d4d4d4;
+  color: #222;
 }
 
 @media (min-width: 641px) {
