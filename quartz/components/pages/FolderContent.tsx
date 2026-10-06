@@ -7,6 +7,7 @@ import { htmlToJsx } from "../../util/jsx"
 import { i18n } from "../../i18n"
 import { QuartzPluginData } from "../../plugins/vfile"
 import { CoffeeDetail, isCoffeePage, coffeeStyle } from "../Coffee"
+import { SongDetail, isSongPage, songStyle, songScript } from "../Song"
 import { ComponentChildren } from "preact"
 import { concatenateResources } from "../../util/resources"
 import { trieFromAllFiles } from "../../util/ctx"
@@ -34,6 +35,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     // These folder index pages use the collection component in beforeBody.
     if (isCollectionIndex(fileData.slug)) return null
     if (isCoffeePage(fileData.slug)) return <CoffeeDetail {...props} />
+    if (isSongPage(fileData.slug)) return <SongDetail {...props} />
     const isScenery = fileData.slug?.startsWith("gallery/scenery/") === true
 
     const trie = (props.ctx.trie ??= trieFromAllFiles(allFiles))
@@ -129,6 +131,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     )
   }
 
-  FolderContent.css = concatenateResources(style, PageList.css, coffeeStyle)
+  FolderContent.css = concatenateResources(style, PageList.css, coffeeStyle, songStyle)
+  FolderContent.afterDOMLoaded = songScript
   return FolderContent
 }) satisfies QuartzComponentConstructor

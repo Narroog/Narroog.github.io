@@ -24,6 +24,7 @@ const config: QuartzConfig = {
       "gallery/scenery/**/*.HEIC",
       "gallery/scenery/**/描述.txt",
       "**/*.log",
+      "05-Gallery/Song/**",
     ],
     defaultDateType: "modified",
     theme: {

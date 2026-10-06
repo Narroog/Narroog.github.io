@@ -16,6 +16,7 @@ const landingSlugs = [
   "blog/meditations/index",
   "blog/review/index",
   "gallery/index",
+  "gallery/song/index",
 ]
 const report = (condition, message) => {
   if (!condition) failures.push(message)
@@ -70,6 +71,27 @@ for (const [slug, page] of Object.entries(index)) {
 
   const source = path.join("content", page.filePath)
   const { data } = matter(fs.readFileSync(source, "utf8"))
+  if (/^gallery\/song\/[^/]+\/index$/.test(slug)) {
+    report(Array.isArray(data.lyrics) && data.lyrics.length > 0, `Missing timed lyrics: ${slug}`)
+    let previousEnd = 0
+    for (const line of data.lyrics ?? []) {
+      report(
+        Number.isFinite(line.start) &&
+          Number.isFinite(line.end) &&
+          previousEnd <= line.start &&
+          line.start < line.end &&
+          line.end <= data.duration &&
+          typeof line.text === "string" &&
+          line.text.trim().length > 0,
+        `Invalid lyric interval in ${slug}: ${line.start}-${line.end}`,
+      )
+      previousEnd = line.end
+    }
+    report(
+      (html.match(/class="song-lyric-line"/g) ?? []).length === data.lyrics?.length,
+      `Missing lyrics in rendered player: ${slug}`,
+    )
+  }
   for (const alias of data.aliases ?? []) {
     const aliasSlug = alias.replace(/\.md$/, "").replace(/\s/g, "-").replaceAll("&", "-and-")
     const redirect = readPage(aliasSlug)
@@ -84,6 +106,14 @@ for (const [slug, page] of Object.entries(index)) {
     report(redirect.includes('content="noindex"'), `Legacy URL must not be indexed: ${alias}`)
     redirects++
   }
+}
+
+const songs = Object.keys(index).filter((slug) => /^gallery\/song\/[^/]+\/index$/.test(slug))
+for (const slug of ["gallery/index", "gallery/song/index"]) {
+  report(
+    (readPage(slug).match(/class="song-card"/g) ?? []).length === songs.length,
+    `Incorrect song card count: ${slug}`,
+  )
 }
 
 for (const section of ["research", "meditations", "review"]) {

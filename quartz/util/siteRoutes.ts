@@ -33,7 +33,7 @@ export function isBlogIndex(slug?: string) {
 }
 
 export function isCollectionIndex(slug?: string) {
-  return isBlogIndex(slug) || slug === "gallery/index"
+  return isBlogIndex(slug) || slug === "gallery/index" || slug === "gallery/song/index"
 }
 
 export function isLandingPage(slug?: string) {

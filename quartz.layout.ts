@@ -1,6 +1,7 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 import { isCoffeePage } from "./quartz/components/Coffee"
+import { isSongPage } from "./quartz/components/Song"
 import { isCollectionIndex, isLandingPage } from "./quartz/util/siteRoutes"
 
 // components shared across all pages
@@ -57,14 +58,16 @@ export const defaultContentPageLayout: PageLayout = {
       component: Component.ArticleTitle(),
       condition: (page) =>
         (!isLandingPage(page.fileData.slug) || page.fileData.slug === "about") &&
-        !isCoffeePage(page.fileData.slug),
+        !isCoffeePage(page.fileData.slug) &&
+        !isSongPage(page.fileData.slug),
     }),
     Component.ConditionalRender({
       component: Component.ContentMeta(),
       condition: (page) =>
         !isLandingPage(page.fileData.slug) &&
         !page.fileData.slug?.startsWith("gallery/scenery/") &&
-        !isCoffeePage(page.fileData.slug),
+        !isCoffeePage(page.fileData.slug) &&
+        !isSongPage(page.fileData.slug),
     }),
     Component.ConditionalRender({
       component: Component.TagList(),
@@ -89,14 +92,17 @@ export const defaultListPageLayout: PageLayout = {
     Component.ConditionalRender({
       component: Component.ArticleTitle(),
       condition: (page) =>
-        !isCollectionIndex(page.fileData.slug) && !isCoffeePage(page.fileData.slug),
+        !isCollectionIndex(page.fileData.slug) &&
+        !isCoffeePage(page.fileData.slug) &&
+        !isSongPage(page.fileData.slug),
     }),
     Component.ConditionalRender({
       component: Component.ContentMeta(),
       condition: (page) =>
         !isCollectionIndex(page.fileData.slug) &&
         !page.fileData.slug?.startsWith("gallery/scenery/") &&
-        !isCoffeePage(page.fileData.slug),
+        !isCoffeePage(page.fileData.slug) &&
+        !isSongPage(page.fileData.slug),
     }),
   ],
   left: [],

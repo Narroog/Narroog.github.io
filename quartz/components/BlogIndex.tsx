@@ -4,6 +4,8 @@ import { htmlToJsx } from "../util/jsx"
 import { visit } from "unist-util-visit"
 import { getDate, formatDate } from "./Date"
 import { CoffeeCards, coffeeStyle } from "./Coffee"
+import { SongCards, songStyle, songScript } from "./Song"
+import { concatenateResources } from "../util/resources"
 import { getTagColor } from "../util/tagColor"
 import { toString } from "hast-util-to-string"
 import { blogSections } from "../util/siteRoutes"
@@ -86,6 +88,16 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
       </section>
     )
   }
+  if (fileData.slug === "gallery/song/index") {
+    return (
+      <section class="blog-home" aria-labelledby="gallery-title">
+        <div class="blog-hero">
+          <h1 id="gallery-title">Song</h1>
+        </div>
+        <SongCards {...props} />
+      </section>
+    )
+  }
   if (fileData.slug === "gallery/index") {
     return (
       <section class="blog-home" aria-labelledby="gallery-title">
@@ -100,6 +112,13 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
                 <section class="gallery-section" aria-labelledby="gallery-coffee">
                   <h2 id="gallery-coffee">Coffee</h2>
                   <CoffeeCards {...props} />
+                </section>
+              )
+            if (category === "Song")
+              return (
+                <section class="gallery-section" aria-labelledby="gallery-song">
+                  <h2 id="gallery-song">Song</h2>
+                  <SongCards {...props} />
                 </section>
               )
             const media = ctx.allSlugs
@@ -318,9 +337,10 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
   )
 }
 
-BlogIndex.css = coffeeStyle
+BlogIndex.css = concatenateResources(coffeeStyle, songStyle)
 
-BlogIndex.afterDOMLoaded = `
+BlogIndex.afterDOMLoaded = concatenateResources(
+  `
 function setupBlogFilters() {
   const filters = document.querySelectorAll(".filter-button")
   const cards = document.querySelectorAll(".blog-card")
@@ -346,6 +366,8 @@ function setupBlogFilters() {
 
 setupBlogFilters()
 document.addEventListener("nav", setupBlogFilters)
-`
+`,
+  songScript,
+)
 
 export default (() => BlogIndex) satisfies QuartzComponentConstructor
