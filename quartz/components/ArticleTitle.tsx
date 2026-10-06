@@ -2,7 +2,11 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import { classNames } from "../util/lang"
 
 const ArticleTitle: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
-  const title = fileData.frontmatter?.title
+  let title = fileData.frontmatter?.title
+  const date = fileData.frontmatter?.date
+  if (/^gallery\/scenery\/[^/]+\/index$/.test(fileData.slug ?? "") && typeof date === "string") {
+    title = `${date.replaceAll("-", ".")} · ${title}`
+  }
   if (title) {
     return <h1 class={classNames(displayClass, "article-title")}>{title}</h1>
   } else {

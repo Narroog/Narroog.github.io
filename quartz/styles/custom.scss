@@ -140,10 +140,10 @@ body {
 }
 
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   .page
   > #quartz-body
@@ -152,10 +152,10 @@ body:is(
 }
 
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article {
   font-size: 1.12rem;
@@ -169,25 +169,25 @@ body:is(
 }
 
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article
   p,
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article
   li {
   line-height: 1.78;
 }
 
-body[data-slug="02-Posts/RF-PA器件的工作方式"] article {
+body[data-slug="blog/research/rf-pa-operation"] article {
   img {
     display: block;
     margin-inline: auto;
@@ -199,18 +199,18 @@ body[data-slug="02-Posts/RF-PA器件的工作方式"] article {
 }
 
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article
   h2,
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article
   h2
@@ -219,18 +219,18 @@ body:is(
 }
 
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article
   h3,
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article
   h3
@@ -239,18 +239,18 @@ body:is(
 }
 
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article
   h4,
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article
   h4
@@ -259,18 +259,18 @@ body:is(
 }
 
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article
   h5,
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article
   h5
@@ -279,18 +279,18 @@ body:is(
 }
 
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article
   h6,
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article
   h6
@@ -299,10 +299,10 @@ body:is(
 }
 
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   .article-title {
   color: var(--dark);
@@ -325,10 +325,10 @@ body[data-slug="about"] article h3 > a[role="anchor"] {
 }
 
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article
   blockquote {
@@ -341,10 +341,10 @@ body:is(
 }
 
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   article
   blockquote
@@ -537,7 +537,7 @@ header {
 .blog-section-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
   margin-bottom: 4rem;
 }
 
@@ -545,16 +545,17 @@ header {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  padding: clamp(1.25rem, 2vw, 2rem);
+  padding: clamp(1.5rem, 2.5vw, 2.5rem);
   border: 1px solid var(--blog-border);
-  border-radius: 18px;
+  border-radius: 12px;
   background: var(--blog-surface-solid);
-  box-shadow: 0 6px 24px var(--blog-shadow);
+  box-shadow: 0 3px 12px var(--blog-shadow);
 
   > h2 {
-    margin: 0.75rem 0 0;
+    margin: 1rem 0 0;
     color: var(--dark);
-    font-size: 1.8rem;
+    font-size: 2.125rem;
+    line-height: 1.25;
   }
 }
 
@@ -564,7 +565,7 @@ header {
   justify-content: space-between;
   gap: 0.5rem;
   color: var(--darkgray);
-  font-size: 0.8rem;
+  font-size: 0.925rem;
 
   > span:last-child {
     color: var(--gray);
@@ -572,22 +573,22 @@ header {
 }
 
 .blog-overview-description {
-  margin: 1rem 0 1.5rem;
+  margin: 0.85rem 0 1.5rem;
   color: var(--darkgray);
-  font-size: 0.95rem;
-  line-height: 1.8;
+  font-size: 1.025rem;
+  line-height: 1.7;
 }
 
 .blog-overview-preview {
-  margin-bottom: 1.5rem;
-  padding-top: 1.25rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--blog-border);
 
   > h3 {
-    margin: 0 0 0.5rem;
-    color: var(--gray);
-    font-size: 0.8rem;
-    font-weight: 500;
+    margin: 0 0 0.65rem;
+    color: var(--darkgray);
+    font-size: 1rem;
+    font-weight: 600;
   }
 }
 
@@ -603,13 +604,13 @@ header {
 
 a.blog-preview-link.internal {
   display: block;
-  padding: 0.85rem 0;
+  padding: 1.15rem 0;
   background: none;
   color: var(--dark);
 
   h4 {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.15rem;
     line-height: 1.5;
   }
 
@@ -618,16 +619,16 @@ a.blog-preview-link.internal {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
-    margin: 0.4rem 0;
+    margin: 0.65rem 0;
     color: var(--darkgray);
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-weight: 400;
     line-height: 1.65;
   }
 
   time {
     color: var(--gray);
-    font-size: 0.75rem;
+    font-size: 0.825rem;
     font-weight: 400;
   }
 
@@ -640,25 +641,27 @@ a.blog-preview-link.internal {
 .blog-overview-empty {
   margin: 1rem 0;
   color: var(--gray);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 a.blog-section-button.internal {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
-  margin-top: auto;
-  padding: 0.8rem 1.1rem;
-  border: 1px solid var(--blog-border);
-  border-radius: 999px;
-  background: var(--light);
-  color: var(--dark);
-  font-size: 0.9rem;
-  font-weight: 700;
+  margin-top: 0;
+  padding: 0.85rem 1.2rem;
+  border: 1px solid #000;
+  border-radius: 8px;
+  background: #000;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
 
   &:hover {
-    background: var(--lightgray);
+    background: #222;
+    border-color: #222;
+    color: #fff;
   }
 }
 
@@ -892,18 +895,17 @@ a.blog-section-button.internal {
   h3 {
     margin: 0;
     font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.5;
   }
+}
 
-  time {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    padding: 0.3rem 0.65rem;
-    border-radius: 8px;
-    background: var(--lightgray);
-    color: var(--darkgray);
-    font-size: 0.85rem;
-    font-variant-numeric: tabular-nums;
+body[data-slug^="gallery/scenery/"] {
+  .article-title {
+    margin: 2rem 0 1.5rem;
+    font-size: clamp(1.65rem, 3vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.4;
   }
 }
 
@@ -1165,10 +1167,10 @@ body[data-slug="about"] .giscus-frame {
 }
 
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   .page
   > #quartz-body
@@ -1186,208 +1188,24 @@ body:is(
 }
 
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   .giscus,
 body:is(
-    [data-slug^="02-Posts/"],
-    [data-slug^="04-Meditations/"],
-    [data-slug^="05-Gallery/"],
-    [data-slug^="06-Review/"]
+    [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+    [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+    [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+    [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
   )
   .giscus-frame {
   width: 100%;
 }
 
-.profile-page {
-  max-width: 52rem;
-  margin: 3rem auto 5rem;
-  padding: 2rem;
-  display: grid;
-  gap: 2.15rem;
-  border: 1px solid var(--blog-border);
-  border-radius: 8px;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.07);
-  background: var(--blog-surface-solid);
-  color: var(--dark);
-  font-size: 1.12rem;
-  line-height: 1.76;
-}
-
-.profile-page *,
-.profile-page *::before,
-.profile-page *::after {
-  box-sizing: border-box;
-}
-
-.profile-hero {
-  width: auto;
-  margin: 0;
-  padding: 0 0 1.3rem;
-  border-bottom: 1px solid var(--blog-border);
-  background: transparent;
-  box-shadow: none;
-}
-
-.profile-hero h1 {
-  margin: 0;
-  color: var(--dark);
-  font-size: 2.4rem;
-  line-height: 1.12;
-}
-
-.profile-hero-copy > p {
-  max-width: 48rem;
-  margin: 0.85rem 0 0;
-  color: var(--darkgray);
-  font-size: 1.18rem;
-  line-height: 1.65;
-}
-
-.profile-section {
-  padding: 0;
-}
-
-.profile-section h2,
-.profile-contact h2 {
-  margin: 0 0 1rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid var(--blog-border);
-  color: var(--dark);
-  font-size: 1.1rem;
-  font-weight: 900;
-  letter-spacing: 0;
-  line-height: 1.25;
-  text-transform: uppercase;
-}
-
-.profile-section h3 {
-  margin: 0 0 0.75rem;
-  color: var(--dark);
-  font-size: 1.7rem;
-  line-height: 1.25;
-}
-
-.profile-focus p:last-child {
-  max-width: 100%;
-  margin: 1rem 0 0;
-  font-size: 1.18rem;
-  line-height: 1.72;
-}
-
-.profile-timeline,
-.profile-awards {
-  list-style: none;
-  margin: 1.25rem 0 0;
-  padding: 0;
-}
-
-.profile-timeline li {
-  display: grid;
-  grid-template-columns: 8.2rem minmax(0, 1fr);
-  gap: 1rem;
-  padding: 0.8rem 0;
-  border-top: 1px solid var(--blog-border);
-}
-
-.profile-timeline time,
-.profile-publication-year {
-  color: var(--blog-accent);
-  font-weight: 900;
-}
-
-.profile-timeline strong,
-.profile-timeline span,
-.profile-awards strong,
-.profile-awards span {
-  display: block;
-}
-
-.profile-timeline span,
-.profile-awards span,
-.profile-publication p {
-  color: var(--darkgray);
-}
-
-.profile-skill-list {
-  display: grid;
-  gap: 1.1rem;
-  margin-top: 1rem;
-}
-
-.profile-skill-list article {
-  margin: 0;
-  padding: 0;
-}
-
-.profile-skill-list h3,
-.profile-publication h3 {
-  margin: 0;
-  color: var(--dark);
-  font-size: 1.08rem;
-}
-
-.profile-skill-list p,
-.profile-publication p {
-  margin: 0.55rem 0 0;
-  line-height: 1.6;
-}
-
-.profile-awards {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.profile-awards li {
-  padding: 0.65rem 0 0.65rem 1rem;
-  border-left: 2px solid var(--blog-purple-dark);
-}
-
-.profile-publication {
-  display: grid;
-  grid-template-columns: 5rem minmax(0, 1fr);
-  gap: 1rem;
-  align-items: start;
-  margin-top: 1.2rem;
-  padding: 0.95rem 0;
-  border-top: 1px solid var(--blog-border);
-  background: transparent;
-}
-
-.profile-contact {
-  padding: 0;
-}
-
-.profile-contact-list {
-  display: grid;
-  gap: 0.65rem;
-  margin: 1rem 0 0;
-  padding: 0;
-}
-
-.profile-contact-list div {
-  display: grid;
-  grid-template-columns: 5.5rem minmax(0, 1fr);
-  gap: 1rem;
-  align-items: baseline;
-}
-
-.profile-contact-list dt {
-  color: var(--blog-accent);
-  font-weight: 900;
-}
-
-.profile-contact-list dd {
-  margin: 0;
-}
-
-.profile-contact-list a {
-  color: var(--blog-accent);
-  font-weight: 800;
-  overflow-wrap: anywhere;
+body[data-slug^="gallery/scenery/"] .page > #quartz-body .center > .page-footer:empty {
+  display: none;
 }
 
 footer {
@@ -1461,10 +1279,10 @@ footer {
   }
 
   body:is(
-      [data-slug^="02-Posts/"],
-      [data-slug^="04-Meditations/"],
-      [data-slug^="05-Gallery/"],
-      [data-slug^="06-Review/"]
+      [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+      [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+      [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+      [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
     )
     article {
     padding: 1.4rem;
@@ -1476,10 +1294,10 @@ footer {
   }
 
   body:is(
-      [data-slug^="02-Posts/"],
-      [data-slug^="04-Meditations/"],
-      [data-slug^="05-Gallery/"],
-      [data-slug^="06-Review/"]
+      [data-slug^="blog/research/"]:not([data-slug="blog/research/index"]),
+      [data-slug^="blog/meditations/"]:not([data-slug="blog/meditations/index"]),
+      [data-slug^="gallery/"]:not([data-slug="gallery/index"]),
+      [data-slug^="blog/review/"]:not([data-slug="blog/review/index"])
     )
     .page
     > #quartz-body
@@ -1487,43 +1305,5 @@ footer {
     > .page-footer {
     margin-top: -2.5rem;
     padding: 1.25rem;
-  }
-
-  .profile-hero,
-  .profile-publication,
-  .profile-contact {
-    grid-template-columns: 1fr;
-  }
-
-  .profile-contact {
-    align-items: flex-start;
-  }
-
-  .profile-timeline li {
-    grid-template-columns: 1fr;
-    gap: 0.35rem;
-  }
-
-  .profile-contact-list div {
-    grid-template-columns: 1fr;
-    gap: 0.1rem;
-  }
-
-  body[data-slug="profile"] article {
-    margin-top: 1.5rem;
-  }
-
-  .profile-page {
-    margin-top: 1.5rem;
-    padding: 1.4rem;
-    font-size: 1.05rem;
-  }
-
-  .profile-hero h1 {
-    font-size: 2rem;
-  }
-
-  .profile-section h3 {
-    font-size: 1.45rem;
   }
 }

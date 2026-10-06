@@ -20,9 +20,10 @@ const config: QuartzConfig = {
       "templates",
       "99-Templates",
       ".obsidian",
-      "05-Gallery/Scenery/**/*.heic",
-      "05-Gallery/Scenery/**/*.HEIC",
-      "05-Gallery/Scenery/**/描述.txt",
+      "gallery/scenery/**/*.heic",
+      "gallery/scenery/**/*.HEIC",
+      "gallery/scenery/**/描述.txt",
+      "**/*.log",
     ],
     defaultDateType: "modified",
     theme: {

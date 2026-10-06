@@ -1,20 +1,18 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { FullSlug, resolveRelative } from "../util/path"
+import { blogSections } from "../util/siteRoutes"
 
 const TopNav: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
   const current = fileData.slug ?? ("index" as FullSlug)
-  const blogLinks = [
-    { label: "Research", slug: "research" as FullSlug, folder: "02-Posts/" },
-    { label: "Meditations", slug: "meditations" as FullSlug, folder: "04-Meditations/" },
-    { label: "Review", slug: "review" as FullSlug, folder: "06-Review/" },
-  ]
-  const blogActive =
-    current === "blog" ||
-    blogLinks.some((link) => current === link.slug || current.startsWith(link.folder))
+  const blogLinks = Object.values(blogSections).map((section) => ({
+    label: section.title,
+    slug: section.slug as FullSlug,
+    folder: section.folder,
+  }))
+  const blogActive = current.startsWith("blog/")
   const links = [
-    { label: "Gallery", slug: "gallery" as FullSlug, folder: "05-Gallery/" },
+    { label: "Gallery", slug: "gallery/index" as FullSlug, folder: "gallery/" },
     { label: "About", slug: "about" as FullSlug, folder: undefined },
-    { label: "Profile", slug: "profile" as FullSlug, folder: undefined },
   ]
 
   return (
@@ -26,8 +24,8 @@ const TopNav: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
         <div class="site-blog-nav">
           <a
             class={blogActive ? "site-nav-link active" : "site-nav-link"}
-            href={resolveRelative(current, "blog" as FullSlug)}
-            aria-current={current === "blog" ? "page" : undefined}
+            href={resolveRelative(current, "blog/index" as FullSlug)}
+            aria-current={current === "blog/index" ? "page" : undefined}
           >
             Blog
           </a>

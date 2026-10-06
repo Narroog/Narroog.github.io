@@ -6,30 +6,7 @@ import { getDate, formatDate } from "./Date"
 import { CoffeeCards, coffeeStyle } from "./Coffee"
 import { getTagColor } from "../util/tagColor"
 import { toString } from "hast-util-to-string"
-
-const blogSections = {
-  research: {
-    title: "Research",
-    label: "研究",
-    folder: "02-Posts/",
-    description: "对科研的方法与思考",
-    empty: "暂无已发布文章。",
-  },
-  meditations: {
-    title: "Meditations",
-    label: "沉思",
-    folder: "04-Meditations/",
-    description: "一些抽象的胡思乱想",
-    empty: "暂无已发布文章。",
-  },
-  review: {
-    title: "Review",
-    label: "评论",
-    folder: "06-Review/",
-    description: "对他人作品的评述",
-    empty: "暂无已发布文章。",
-  },
-}
+import { blogSections } from "../util/siteRoutes"
 
 const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
   const { allFiles, cfg, fileData, ctx } = props
@@ -43,12 +20,11 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
           page.frontmatter?.draft !== true,
       )
       .sort((a, b) => (getDate(cfg, b)?.getTime() ?? 0) - (getDate(cfg, a)?.getTime() ?? 0))
-  if (fileData.slug === "blog") {
+  if (fileData.slug === "blog/index") {
     return (
       <section class="blog-home" aria-labelledby="blog-title">
         <div class="blog-hero">
           <h1 id="blog-title">Blog</h1>
-          <p>研究、思考与回顾，从三个方向记录探索。</p>
         </div>
         <div class="blog-section-grid">
           {Object.entries(blogSections).map(([slug, section]) => {
@@ -61,13 +37,19 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
                 </div>
                 <h2 id={`blog-${slug}`}>{section.title}</h2>
                 <p class="blog-overview-description">{section.description}</p>
+                <a
+                  class="blog-section-button internal"
+                  href={resolveRelative(fileData.slug!, section.slug as FullSlug)}
+                >
+                  进入 {section.title}
+                </a>
                 <div class="blog-overview-preview">
                   <h3>近期文章</h3>
                   {posts.length === 0 ? (
                     <p class="blog-overview-empty">{section.empty}</p>
                   ) : (
                     <ul class="blog-preview-list">
-                      {posts.slice(0, 3).map((post) => {
+                      {posts.slice(0, 2).map((post) => {
                         const date = getDate(cfg, post)
                         const paragraph = post.htmlAst?.children.find(
                           (child) => child.type === "element" && child.tagName === "p",
@@ -97,12 +79,6 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
                     </ul>
                   )}
                 </div>
-                <a
-                  class="blog-section-button internal"
-                  href={resolveRelative(fileData.slug!, slug as FullSlug)}
-                >
-                  进入 {section.title} <span aria-hidden="true">→</span>
-                </a>
               </section>
             )
           })}
@@ -110,7 +86,7 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
       </section>
     )
   }
-  if (fileData.slug === "gallery") {
+  if (fileData.slug === "gallery/index") {
     return (
       <section class="blog-home" aria-labelledby="gallery-title">
         <div class="blog-hero">
@@ -118,7 +94,7 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
         </div>
         <div class="gallery-exhibition">
           {["Coffee", "Scenery", "Song"].map((category) => {
-            const prefix = `05-Gallery/${category}/`
+            const prefix = `gallery/${category.toLowerCase()}/`
             if (category === "Coffee")
               return (
                 <section class="gallery-section" aria-labelledby="gallery-coffee">
@@ -176,17 +152,16 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
                           <h3>
                             {album.page ? (
                               <a href={resolveRelative(fileData.slug!, album.page.slug!)}>
+                                {album.date && `${album.date.replaceAll("-", ".")} · `}
                                 {album.title}
                               </a>
                             ) : (
-                              album.title
+                              <>
+                                {album.date && `${album.date.replaceAll("-", ".")} · `}
+                                {album.title}
+                              </>
                             )}
                           </h3>
-                          {album.date && (
-                            <time datetime={album.date}>
-                              <span>拍摄日期</span> {album.date.replaceAll("-", ".")}
-                            </time>
-                          )}
                         </div>
                         <div class="gallery-media-grid scenery-photo-grid">
                           {album.photos.map((slug, index) => {
@@ -277,10 +252,7 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
     )
   }
 
-  const sectionSlug = (
-    fileData.slug && fileData.slug in blogSections ? fileData.slug : "research"
-  ) as keyof typeof blogSections
-  const section = blogSections[sectionSlug]
+  const section = Object.values(blogSections).find((section) => section.slug === fileData.slug)!
   const posts = publishedPosts(section.folder)
 
   const tags = Array.from(
@@ -297,7 +269,7 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
         <span class="filter-label">标签筛选</span>
         <a
           class="filter-button active"
-          href={resolveRelative(fileData.slug!, sectionSlug as FullSlug)}
+          href={resolveRelative(fileData.slug!, section.slug as FullSlug)}
           data-tag="all"
         >
           全部

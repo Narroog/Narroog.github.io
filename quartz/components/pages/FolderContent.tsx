@@ -10,6 +10,7 @@ import { CoffeeDetail, isCoffeePage, coffeeStyle } from "../Coffee"
 import { ComponentChildren } from "preact"
 import { concatenateResources } from "../../util/resources"
 import { trieFromAllFiles } from "../../util/ctx"
+import { isCollectionIndex } from "../../util/siteRoutes"
 
 interface FolderContentOptions {
   /**
@@ -30,8 +31,10 @@ export default ((opts?: Partial<FolderContentOptions>) => {
 
   const FolderContent: QuartzComponent = (props: QuartzComponentProps) => {
     const { tree, fileData, allFiles, cfg } = props
+    // These folder index pages use the collection component in beforeBody.
+    if (isCollectionIndex(fileData.slug)) return null
     if (isCoffeePage(fileData.slug)) return <CoffeeDetail {...props} />
-    const isScenery = fileData.slug?.startsWith("05-Gallery/Scenery/") === true
+    const isScenery = fileData.slug?.startsWith("gallery/scenery/") === true
 
     const trie = (props.ctx.trie ??= trieFromAllFiles(allFiles))
     const folder = trie.findNode(fileData.slug!.split("/"))

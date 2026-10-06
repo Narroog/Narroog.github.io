@@ -35,6 +35,9 @@ jobs:
       - name: Build Quartz
         run: npm run quartz -- build
 
+      - name: Check published routes
+        run: npm run check:routes
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:

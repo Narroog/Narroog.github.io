@@ -1,16 +1,13 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { FullSlug, resolveRelative } from "../util/path"
+import { blogSections } from "../util/siteRoutes"
 
 const BackHome: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
   const current = fileData.slug ?? ("index" as FullSlug)
-  const section = [
-    ["02-Posts/", "research"],
-    ["04-Meditations/", "meditations"],
-    ["05-Gallery/", "gallery"],
-    ["06-Review/", "review"],
-  ].find(([prefix]) => current.startsWith(prefix))
-  const target = (section?.[1] ?? "index") as FullSlug
-  const category = current.startsWith("05-Gallery/") ? current.split("/")[1] : undefined
+  const section = Object.values(blogSections).find((section) => current.startsWith(section.folder))
+  const target = (section?.slug ??
+    (current.startsWith("gallery/") ? "gallery/index" : "index")) as FullSlug
+  const category = current.startsWith("gallery/") ? current.split("/")[1] : undefined
   const anchor = category ? `#gallery-${category.toLowerCase()}` : ""
 
   return (

@@ -9,7 +9,7 @@ import coffeeStyle from "./styles/coffee.scss"
 export { coffeeStyle }
 
 export function isCoffeePage(slug?: string) {
-  return /^05-Gallery\/Coffee\/[^/]+\/index$/.test(slug ?? "")
+  return /^gallery\/coffee\/[^/]+\/index$/.test(slug ?? "")
 }
 
 // Read the rendered Markdown so edits to the source remain the single source of truth.
@@ -68,7 +68,6 @@ export function CoffeeCards({ allFiles, fileData }: QuartzComponentProps) {
     .map(coffeeRecord)
   return (
     <div class="coffee-collection">
-      <p class="coffee-intro">{records.length} 款咖啡豆 · 记录每一杯的风味</p>
       <div class="coffee-grid">
         {records.map((record) => (
           <a
@@ -99,9 +98,6 @@ export function CoffeeCards({ allFiles, fileData }: QuartzComponentProps) {
                 <span>{record.price}</span>
                 <span class="coffee-card-rating">★ {record.rating}</span>
               </div>
-              <span class="coffee-card-action">
-                查看品饮记录 <span aria-hidden="true">↗</span>
-              </span>
             </div>
           </a>
         ))}

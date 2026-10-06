@@ -4,11 +4,6 @@
   --coffee-wash: color-mix(in srgb, #bb8759 9%, var(--blog-surface-solid));
 }
 
-.coffee-intro {
-  margin: -0.5rem 0 1.5rem;
-  color: var(--gray);
-  font-size: 0.95rem;
-}
 .coffee-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -42,7 +37,7 @@ a.coffee-card:hover {
   height: 250px;
   padding: 1.5rem;
   box-sizing: border-box;
-  background: var(--coffee-wash);
+  background: var(--blog-surface-solid);
 }
 .coffee-card-image img {
   display: block;
@@ -105,30 +100,21 @@ a.coffee-card:hover {
   color: var(--coffee-accent);
   font-weight: 600;
 }
-.coffee-card-action {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--blog-border);
-  color: var(--gray);
-  font-size: 0.8rem;
-}
 
-body[data-slug^="05-Gallery/Coffee/"]:has(.coffee-detail) {
+body[data-slug^="gallery/coffee/"]:has(.coffee-detail) {
   width: 100%;
 }
-body[data-slug^="05-Gallery/Coffee/"]:has(.coffee-detail) .page > #quartz-body .center {
+body[data-slug^="gallery/coffee/"]:has(.coffee-detail) .page > #quartz-body .center {
   width: min(66rem, calc(100vw - 3rem));
 }
-body[data-slug^="05-Gallery/Coffee/"]:has(.coffee-detail)
+body[data-slug^="gallery/coffee/"]:has(.coffee-detail)
   .page
   > #quartz-body
   .center
-  > .page-footer {
+  > .page-footer:empty {
   display: none;
 }
-body[data-slug^="05-Gallery/Coffee/"] article.coffee-detail {
+body[data-slug^="gallery/coffee/"] article.coffee-detail {
   margin: 2rem auto 4rem;
   padding: 2.5rem;
   font-size: 1rem;
@@ -270,10 +256,10 @@ body[data-slug^="05-Gallery/Coffee/"] article.coffee-detail {
   .coffee-card-image {
     height: 230px;
   }
-  body[data-slug^="05-Gallery/Coffee/"]:has(.coffee-detail) .page > #quartz-body .center {
+  body[data-slug^="gallery/coffee/"]:has(.coffee-detail) .page > #quartz-body .center {
     width: calc(100% - 1.25rem);
   }
-  body[data-slug^="05-Gallery/Coffee/"] article.coffee-detail {
+  body[data-slug^="gallery/coffee/"] article.coffee-detail {
     padding: 1.25rem;
     margin-top: 1rem;
   }

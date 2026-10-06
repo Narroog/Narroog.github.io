@@ -1,6 +1,7 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 import { isCoffeePage } from "./quartz/components/Coffee"
+import { isCollectionIndex, isLandingPage } from "./quartz/util/siteRoutes"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -26,10 +27,8 @@ export const sharedPageComponents: SharedLayout = {
       }),
       condition: (page) =>
         page.fileData.slug === "about" ||
-        ((page.fileData.slug?.startsWith("02-Posts/") === true ||
-          page.fileData.slug?.startsWith("04-Meditations/") === true ||
-          page.fileData.slug?.startsWith("05-Gallery/") === true ||
-          page.fileData.slug?.startsWith("06-Review/") === true) &&
+        ((page.fileData.slug?.startsWith("blog/") === true ||
+          page.fileData.slug?.startsWith("gallery/") === true) &&
           !page.fileData.slug.endsWith("/README") &&
           !page.fileData.slug.endsWith("/index")),
     }),
@@ -44,15 +43,7 @@ export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
     Component.ConditionalRender({
       component: Component.BackHome(),
-      condition: (page) =>
-        page.fileData.slug !== "index" &&
-        page.fileData.slug !== "blog" &&
-        page.fileData.slug !== "research" &&
-        page.fileData.slug !== "meditations" &&
-        page.fileData.slug !== "gallery" &&
-        page.fileData.slug !== "review" &&
-        page.fileData.slug !== "about" &&
-        page.fileData.slug !== "profile",
+      condition: (page) => !isLandingPage(page.fileData.slug),
     }),
     Component.ConditionalRender({
       component: Component.HomePage(),
@@ -60,50 +51,24 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.ConditionalRender({
       component: Component.BlogIndex(),
-      condition: (page) =>
-        ["blog", "research", "meditations", "gallery", "review"].includes(page.fileData.slug ?? ""),
-    }),
-    Component.ConditionalRender({
-      component: Component.ProfilePage(),
-      condition: (page) => page.fileData.slug === "profile",
+      condition: (page) => isCollectionIndex(page.fileData.slug),
     }),
     Component.ConditionalRender({
       component: Component.ArticleTitle(),
       condition: (page) =>
-        page.fileData.slug !== "index" &&
-        page.fileData.slug !== "blog" &&
-        page.fileData.slug !== "research" &&
-        page.fileData.slug !== "meditations" &&
-        page.fileData.slug !== "gallery" &&
-        page.fileData.slug !== "review" &&
-        page.fileData.slug !== "profile" &&
+        (!isLandingPage(page.fileData.slug) || page.fileData.slug === "about") &&
         !isCoffeePage(page.fileData.slug),
     }),
     Component.ConditionalRender({
       component: Component.ContentMeta(),
       condition: (page) =>
-        page.fileData.slug !== "index" &&
-        page.fileData.slug !== "blog" &&
-        page.fileData.slug !== "research" &&
-        page.fileData.slug !== "meditations" &&
-        page.fileData.slug !== "gallery" &&
-        page.fileData.slug !== "review" &&
-        page.fileData.slug !== "about" &&
-        page.fileData.slug !== "profile" &&
-        !page.fileData.slug?.startsWith("05-Gallery/Scenery/") &&
+        !isLandingPage(page.fileData.slug) &&
+        !page.fileData.slug?.startsWith("gallery/scenery/") &&
         !isCoffeePage(page.fileData.slug),
     }),
     Component.ConditionalRender({
       component: Component.TagList(),
-      condition: (page) =>
-        page.fileData.slug !== "index" &&
-        page.fileData.slug !== "blog" &&
-        page.fileData.slug !== "research" &&
-        page.fileData.slug !== "meditations" &&
-        page.fileData.slug !== "gallery" &&
-        page.fileData.slug !== "review" &&
-        page.fileData.slug !== "about" &&
-        page.fileData.slug !== "profile",
+      condition: (page) => !isLandingPage(page.fileData.slug),
     }),
   ],
   left: [],
@@ -113,15 +78,25 @@ export const defaultContentPageLayout: PageLayout = {
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [
-    Component.BackHome(),
+    Component.ConditionalRender({
+      component: Component.BackHome(),
+      condition: (page) => !isCollectionIndex(page.fileData.slug),
+    }),
+    Component.ConditionalRender({
+      component: Component.BlogIndex(),
+      condition: (page) => isCollectionIndex(page.fileData.slug),
+    }),
     Component.ConditionalRender({
       component: Component.ArticleTitle(),
-      condition: (page) => !isCoffeePage(page.fileData.slug),
+      condition: (page) =>
+        !isCollectionIndex(page.fileData.slug) && !isCoffeePage(page.fileData.slug),
     }),
     Component.ConditionalRender({
       component: Component.ContentMeta(),
       condition: (page) =>
-        !page.fileData.slug?.startsWith("05-Gallery/Scenery/") && !isCoffeePage(page.fileData.slug),
+        !isCollectionIndex(page.fileData.slug) &&
+        !page.fileData.slug?.startsWith("gallery/scenery/") &&
+        !isCoffeePage(page.fileData.slug),
     }),
   ],
   left: [],
