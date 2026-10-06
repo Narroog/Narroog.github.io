@@ -18,7 +18,7 @@ function songRecord(page: QuartzPluginData) {
   return {
     page,
     title: metadata.title,
-    performer: String(metadata.performer ?? "Narog"),
+    originalArtist: String(metadata.originalArtist ?? ""),
     order: Number(metadata.order ?? 0),
     duration: Number(metadata.duration ?? 0),
     audio: `${folder}/recording.mp3` as FullSlug,
@@ -86,18 +86,15 @@ export function SongCards(props: QuartzComponentProps) {
             <span class="song-cover-label">翻唱</span>
           </div>
           <h3>
-            <a class="internal" href={resolveRelative(props.fileData.slug!, song.page.slug!)}>
+            <a
+              class="song-card-link internal"
+              href={resolveRelative(props.fileData.slug!, song.page.slug!)}
+            >
               {song.title}
             </a>
           </h3>
-          <p class="song-performer">{song.performer}</p>
+          <p class="song-original">原唱 · {song.originalArtist}</p>
           <Transport song={song} slug={props.fileData.slug!} />
-          <a
-            class="song-detail-link internal"
-            href={resolveRelative(props.fileData.slug!, song.page.slug!)}
-          >
-            歌词播放器
-          </a>
         </article>
       ))}
     </div>
@@ -109,8 +106,9 @@ export function SongDetail(props: QuartzComponentProps) {
   return (
     <article class="song-detail popover-hint">
       <div class="song-heading">
-        <p class="song-cover-label">{song.performer} · 翻唱</p>
+        <p class="song-cover-label">翻唱</p>
         <h1>{song.title}</h1>
+        <p class="song-original">原唱 · {song.originalArtist}</p>
       </div>
       <Transport song={song} slug={props.fileData.slug!} />
       <section class="song-lyrics" aria-label={`《${song.title}》同步歌词`}>

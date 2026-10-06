@@ -34,6 +34,10 @@ function setupSongs() {
       const time = pendingSeek ?? audio.currentTime
       seek.max = String(duration())
       seek.value = String(time)
+      seek.style.setProperty(
+        "--song-progress",
+        `${Math.min(100, Math.max(0, (time / duration()) * 100))}%`,
+      )
       elapsed.textContent = formatSongTime(time)
       durationLabel.textContent = formatSongTime(duration())
       seek.setAttribute("aria-valuetext", `${formatSongTime(time)} / ${formatSongTime(duration())}`)

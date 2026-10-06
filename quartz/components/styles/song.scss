@@ -3,22 +3,38 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
 }
-body[data-slug="gallery/song/index"] .page > #quartz-body .center {
+body[data-slug="gallery/song/index"]:has(.song-grid) .page > #quartz-body div.center {
   width: min(84rem, calc(100vw - 3rem));
 }
-body[data-slug="gallery/song/index"] article.song-card {
+body[data-slug="gallery/song/index"]:has(.song-grid) article.song-card {
   margin: 0;
-  padding: 1.75rem;
+  padding: 1.5rem;
   font-size: 1rem;
   border-radius: 18px;
   box-shadow: none;
 }
+body[data-slug="gallery/song/index"]:has(.song-grid)
+  .page
+  > #quartz-body
+  .center
+  > .page-footer:empty {
+  display: none;
+}
 
 .song-card {
-  padding: 1.75rem;
+  position: relative;
+  padding: 1.5rem;
   border: 1px solid var(--blog-border);
   border-radius: 18px;
   background: var(--blog-surface-solid);
+  transition:
+    box-shadow 180ms ease,
+    transform 180ms ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px var(--blog-shadow);
+  }
 
   h3 {
     margin: 1.5rem 0 0.5rem;
@@ -29,6 +45,35 @@ body[data-slug="gallery/song/index"] article.song-card {
     padding: 0;
     background: none;
   }
+}
+
+// A real link covers the card; playback controls stay independently interactive.
+.song-card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 18px;
+}
+.song-card-link:focus-visible {
+  outline: none;
+}
+.song-card-link:focus-visible::after {
+  outline: 2px solid var(--dark);
+  outline-offset: 4px;
+}
+.song-card .song-player {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+.song-card .song-toggle,
+.song-card .song-seek,
+.song-card .song-native {
+  pointer-events: auto;
+}
+.song-player {
+  padding-bottom: 1.25rem;
 }
 
 .song-card-top,
@@ -46,19 +91,19 @@ body[data-slug="gallery/song/index"] article.song-card {
 }
 
 .song-cover-label,
-.song-performer {
+.song-original {
   color: var(--gray);
   font-size: 0.9rem;
 }
 
-.song-performer {
+.song-card .song-original {
   margin: 0 0 2rem;
 }
 
 .song-transport {
   display: none;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .song-player[data-ready] {
@@ -81,7 +126,9 @@ button.song-toggle {
   flex-shrink: 0;
   gap: 0.35rem;
   min-height: 44px;
-  padding: 0.65rem 0.85rem;
+  height: 44px;
+  box-sizing: border-box;
+  padding: 0 0.65rem;
   border: 1px solid #000;
   border-radius: 10px;
   background: #000;
@@ -108,18 +155,60 @@ button.song-toggle {
 }
 
 .song-progress {
+  position: relative;
   min-width: 0;
   flex: 1;
 }
 input.song-seek {
   display: block;
   width: 100%;
-  height: 24px;
+  height: 44px;
   margin: 0;
+  appearance: none;
+  border: 0;
+  background: transparent;
   accent-color: var(--dark);
   cursor: pointer;
 }
+input.song-seek::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 99px;
+  background: linear-gradient(
+    to right,
+    var(--dark) var(--song-progress, 0%),
+    var(--lightgray) var(--song-progress, 0%)
+  );
+}
+input.song-seek::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -5px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--dark);
+}
+input.song-seek::-moz-range-track {
+  height: 8px;
+  border-radius: 99px;
+  background: var(--lightgray);
+}
+input.song-seek::-moz-range-progress {
+  height: 8px;
+  border-radius: 99px;
+  background: var(--dark);
+}
+input.song-seek::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--dark);
+}
 .song-time {
+  position: absolute;
+  inset: 100% 0 auto;
+  margin-top: 0.25rem;
   display: flex;
   justify-content: space-between;
   color: var(--gray);
@@ -133,14 +222,6 @@ input.song-seek {
   &:empty {
     display: none;
   }
-}
-.song-card a.song-detail-link {
-  display: inline-block;
-  margin-top: 1.75rem;
-  text-decoration: underline;
-  text-underline-offset: 0.3em;
-  font-weight: 500;
-  font-size: 0.9rem;
 }
 
 body[data-slug^="gallery/song/"]:has(.song-detail) .page > #quartz-body .center {
@@ -207,7 +288,7 @@ button.song-lyric-line {
   align-items: baseline;
   gap: 1.25rem;
   width: 100%;
-  padding: 0.85rem 1rem;
+  padding: 0.4rem 1rem;
   border: 0;
   border-radius: 8px;
   background: transparent;
@@ -215,7 +296,7 @@ button.song-lyric-line {
   color: var(--gray);
   font: inherit;
   font-size: 1.1rem;
-  line-height: 1.7;
+  line-height: 1.5;
   cursor: pointer;
   transition:
     color 150ms,
@@ -258,13 +339,14 @@ button.song-lyric-line {
     font-size: 2.2rem;
   }
   button.song-lyric-line {
-    padding: 0.75rem 0.25rem;
+    padding: 0.4rem 0.25rem;
     gap: 0.5rem;
     font-size: 1rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  button.song-lyric-line {
+  button.song-lyric-line,
+  .song-card {
     transition: none;
   }
 }

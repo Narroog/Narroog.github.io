@@ -1,8 +1,8 @@
 ---
 title: 红豆
-description: Narog 的翻唱与同步歌词。
+description: 方大同《红豆》的翻唱与同步歌词。
 draft: false
-performer: Narog
+originalArtist: 方大同
 order: 3
 duration: 200.481
 lyrics:

@@ -15,6 +15,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "content/05-Gallery/Song"
 CACHE = ROOT / ".quartz-cache/song-import"
 SONGS = [("01-回留", "return", "回留"), ("02-同类", "kindred", "同类"), ("03-红豆", "red-bean", "红豆")]
+ORIGINAL_ARTISTS = {"return": "方大同", "kindred": "孙燕姿", "red-bean": "方大同"}
 # Onsets checked against independent full/local alignment passes. The full pass
 # preserves chorus order; these corrections remove intro/interlude absorption.
 START_CORRECTIONS = {
@@ -221,8 +222,9 @@ def main():
                 start, end = round(segment["start"], 2), round(segment["end"], 2)
                 assert previous_end <= start < end <= info["duration"], f"Invalid timing: {slug} {start}-{end}"
                 previous_end = end
-            page = ["---", f"title: {info['title']}", "description: Narog 的翻唱与同步歌词。",
-                    "draft: false", "performer: Narog", f"order: {order}", f"duration: {info['duration']:.3f}", "lyrics:"]
+            artist = ORIGINAL_ARTISTS[slug]
+            page = ["---", f"title: {info['title']}", f"description: {artist}《{info['title']}》的翻唱与同步歌词。",
+                    "draft: false", f"originalArtist: {artist}", f"order: {order}", f"duration: {info['duration']:.3f}", "lyrics:"]
             for text, segment in zip(original, segments):
                 page.extend([f"  - start: {round(segment['start'], 2)}", f"    end: {round(segment['end'], 2)}",
                              f"    text: {json.dumps(text, ensure_ascii=False)}"])

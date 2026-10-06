@@ -2,7 +2,7 @@
 
 Published songs live in `content/gallery/song/<english-name>/`. Each folder has
 `recording.mp3` and `index.md`. The Markdown frontmatter contains the title,
-performer, duration, card order, and `{ start, end, text }` lyric lines in seconds.
+original artist (`originalArtist`), duration, card order, and `{ start, end, text }` lyric lines in seconds.
 The same recording powers both the Gallery card and its lyric player.
 
 The original WAV recordings and Pages documents stay in `content/05-Gallery/Song`.

@@ -1,8 +1,8 @@
 ---
 title: 同类
-description: Narog 的翻唱与同步歌词。
+description: 孙燕姿《同类》的翻唱与同步歌词。
 draft: false
-performer: Narog
+originalArtist: 孙燕姿
 order: 2
 duration: 213.760
 lyrics:

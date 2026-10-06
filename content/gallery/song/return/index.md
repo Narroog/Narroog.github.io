@@ -1,8 +1,8 @@
 ---
 title: 回留
-description: Narog 的翻唱与同步歌词。
+description: 方大同《回留》的翻唱与同步歌词。
 draft: false
-performer: Narog
+originalArtist: 方大同
 order: 1
 duration: 225.779
 lyrics:
