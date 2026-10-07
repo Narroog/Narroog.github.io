@@ -23,7 +23,7 @@ interface RenderComponents {
 }
 
 const headerRegex = new RegExp(/h[1-6]/)
-const assetVersion = "home-20261006-three-buttons"
+const assetVersion = "buttons-20261007-pill-radius"
 export function pageResources(
   baseDir: FullSlug | RelativeURL,
   staticResources: StaticResources,

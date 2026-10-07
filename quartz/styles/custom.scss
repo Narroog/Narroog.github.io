@@ -18,6 +18,7 @@
 }
 
 :root {
+  --button-radius: 980px;
   --brand-font: "Manrope", var(--headerFont);
   --blog-page-bg: #fafafa;
   --blog-surface: rgba(255, 255, 255, 0.88);
@@ -89,6 +90,11 @@
 body {
   font-size: 1.06rem;
   background: var(--blog-page-bg);
+}
+
+// Keep native controls consistent across separately styled Quartz components.
+body button {
+  border-radius: var(--button-radius) !important;
 }
 
 .page {
@@ -362,7 +368,7 @@ a.back-home-card.internal {
   margin-bottom: 0.9rem;
   padding: 0 1rem;
   border: 1px solid var(--blog-border);
-  border-radius: 999px;
+  border-radius: var(--button-radius);
   box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.05);
   background: var(--blog-surface);
   color: var(--blog-accent);
@@ -463,7 +469,7 @@ header {
 
 .site-blog-dropdown > summary {
   padding: 0.2rem;
-  border-radius: 6px;
+  border-radius: var(--button-radius);
 }
 
 .site-nav-link:focus-visible,
@@ -496,7 +502,7 @@ header {
 .site-blog-link {
   display: block;
   padding: 0.7rem 0.85rem;
-  border-radius: 7px;
+  border-radius: var(--button-radius);
   color: var(--darkgray);
   font-weight: 600;
 
@@ -652,7 +658,7 @@ a.blog-section-button.internal {
   margin-top: 0;
   padding: 0.85rem 1.2rem;
   border: 1px solid #000;
-  border-radius: 8px;
+  border-radius: var(--button-radius);
   background: #000;
   color: #fff;
   font-size: 1rem;
@@ -728,7 +734,7 @@ a.blog-section-button.internal {
   align-items: center;
   justify-content: center;
   padding: 0 0.75rem;
-  border-radius: 14px;
+  border-radius: var(--button-radius);
   font-size: 1.18rem;
   font-weight: 800;
   text-align: center;
@@ -1024,7 +1030,7 @@ body[data-slug^="gallery/scenery/"] {
   justify-content: center;
   text-align: center;
   border: 1px solid var(--tag-border, var(--blog-border));
-  border-radius: 10px;
+  border-radius: var(--button-radius);
   box-shadow: none;
   background: var(--tag-background, var(--blog-surface-solid));
   color: var(--tag-foreground, var(--darkgray));
@@ -1130,7 +1136,7 @@ body[data-slug^="gallery/scenery/"] {
   justify-content: center;
   text-align: center;
   border: 1px solid var(--tag-border, var(--blog-border));
-  border-radius: 10px;
+  border-radius: var(--button-radius);
   box-shadow: none;
   background: var(--tag-background, var(--lightgray));
   color: var(--tag-foreground, var(--darkgray));
@@ -1141,7 +1147,7 @@ body[data-slug^="gallery/scenery/"] {
 
 .tags a.internal.tag-link {
   border: 1px solid var(--tag-border, var(--blog-border));
-  border-radius: 10px;
+  border-radius: var(--button-radius);
   background: var(--tag-background, var(--lightgray));
   color: var(--tag-foreground, var(--darkgray));
   font-weight: 500;
