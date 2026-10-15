@@ -1,7 +1,7 @@
 .coffee-collection,
 .coffee-detail {
-  --coffee-accent: color-mix(in srgb, var(--dark) 65%, #bb8759);
-  --coffee-wash: color-mix(in srgb, #bb8759 9%, var(--blog-surface-solid));
+  --coffee-accent: color-mix(in srgb, var(--dark) 65%, #916643);
+  --coffee-wash: color-mix(in srgb, #916643 9%, var(--blog-surface-solid));
 }
 
 .coffee-grid {
@@ -230,7 +230,7 @@ body[data-slug^="gallery/coffee/"] article.coffee-detail {
 }
 .coffee-tasting-grid > div {
   padding-left: 1.25rem;
-  border-left: 2px solid color-mix(in srgb, #bb8759 45%, var(--blog-border));
+  border-left: 2px solid color-mix(in srgb, #916643 45%, var(--blog-border));
 }
 .coffee-detail .coffee-tasting h3 {
   margin: 0 0 0.4rem;

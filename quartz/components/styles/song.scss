@@ -129,16 +129,16 @@ button.song-toggle {
   height: 44px;
   box-sizing: border-box;
   padding: 0 0.65rem;
-  border: 1px solid #000;
+  border: 1px solid var(--coffee-dark);
   border-radius: var(--button-radius);
-  background: #000;
+  background: var(--coffee-dark);
   color: #fff;
   cursor: pointer;
   font: inherit;
   font-size: 0.9rem;
 
   &:hover {
-    background: #222;
+    background: var(--coffee-dark-hover);
   }
 }
 

@@ -1,5 +1,6 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+import { coffeeSyntaxThemes } from "./quartz/util/coffeeTheme"
 
 /**
  * Quartz 4 Configuration
@@ -42,9 +43,9 @@ const config: QuartzConfig = {
           gray: "#a0a0a0",
           darkgray: "#4c4c4c",
           dark: "#1d1d1d",
-          secondary: "#2f2f2f",
-          tertiary: "#676767",
-          highlight: "rgba(143, 159, 169, 0.15)",
+          secondary: "#573b2c",
+          tertiary: "#6f503b",
+          highlight: "rgba(87, 59, 44, 0.12)",
           textHighlight: "#bdbdbd88",
         },
         darkMode: {
@@ -53,9 +54,9 @@ const config: QuartzConfig = {
           gray: "#747474",
           darkgray: "#d8d8d8",
           dark: "#f2f2f2",
-          secondary: "#dedede",
-          tertiary: "#ababab",
-          highlight: "rgba(143, 159, 169, 0.15)",
+          secondary: "#bda083",
+          tertiary: "#ab896b",
+          highlight: "rgba(189, 160, 131, 0.15)",
           textHighlight: "#74747488",
         },
       },
@@ -68,10 +69,7 @@ const config: QuartzConfig = {
         priority: ["frontmatter", "git", "filesystem"],
       }),
       Plugin.SyntaxHighlighting({
-        theme: {
-          light: "github-light",
-          dark: "github-dark",
-        },
+        theme: coffeeSyntaxThemes,
         keepBackground: false,
       }),
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
