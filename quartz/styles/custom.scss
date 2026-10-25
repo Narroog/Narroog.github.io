@@ -26,6 +26,7 @@
   --coffee-ink: #573b2c;
   --coffee-heading: #3e291f;
   --coffee-gallery-heading: #6f503b;
+  --muted-foreground: #707070;
   --coffee-gradient: linear-gradient(100deg, #3e291f 0%, #6f503b 52%, #8d664b 100%);
   --button-radius: 980px;
   --brand-font: "Manrope", var(--headerFont);
@@ -33,7 +34,7 @@
   --blog-surface: rgba(255, 255, 255, 0.88);
   --blog-surface-solid: #ffffff;
   --blog-border: rgba(0, 0, 0, 0.1);
-  --blog-shadow: rgba(0, 0, 0, 0.09);
+  --blog-shadow: rgba(0, 0, 0, 0.06);
   --blog-accent: var(--coffee-ink);
   --blog-nav: #ffffff;
   --blog-nav-deep: var(--coffee-heading);
@@ -52,6 +53,7 @@
 }
 
 :root[saved-theme="dark"] {
+  --muted-foreground: #a8a8a8;
   --coffee-ink: #bda083;
   --coffee-heading: #ab896b;
   --coffee-gallery-heading: #bda083;
@@ -156,7 +158,7 @@ body:is(
   padding: 2.75rem 3rem;
   border: 1px solid var(--blog-border);
   border-radius: 8px;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.07);
+  box-shadow: 0 0.5rem 1.75rem rgba(0, 0, 0, 0.045);
   background: var(--blog-surface-solid);
 }
 
@@ -400,6 +402,9 @@ header {
 }
 
 .site-brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   flex-shrink: 0;
   font-family: "Fraunces", Georgia, serif;
   font-size: 1.625rem;
@@ -417,9 +422,15 @@ header {
 }
 
 .site-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 44px;
+  min-height: 44px;
   color: var(--darkgray);
   font-size: 1.08rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .site-nav-link.active,
@@ -486,6 +497,8 @@ header {
 }
 
 .site-blog-link {
+  box-sizing: border-box;
+  min-height: 44px;
   display: block;
   padding: 0.7rem 0.85rem;
   border-radius: var(--button-radius);
@@ -525,7 +538,7 @@ body[data-slug^="gallery/"]:not([data-slug="gallery/index"]) .blog-hero h1 {
 
 .blog-hero p:last-child {
   margin: 0.9rem 0 0;
-  color: var(--gray);
+  color: var(--muted-foreground);
   font-size: 1.14rem;
   font-weight: 700;
 }
@@ -564,7 +577,7 @@ body[data-slug^="gallery/"]:not([data-slug="gallery/index"]) .blog-hero h1 {
   font-size: 0.925rem;
 
   > span:last-child {
-    color: var(--gray);
+    color: var(--muted-foreground);
   }
 }
 
@@ -623,7 +636,7 @@ a.blog-preview-link.internal {
   }
 
   time {
-    color: var(--gray);
+    color: var(--muted-foreground);
     font-size: 0.825rem;
     font-weight: 400;
   }
@@ -636,7 +649,7 @@ a.blog-preview-link.internal {
 
 .blog-overview-empty {
   margin: 1rem 0;
-  color: var(--gray);
+  color: var(--muted-foreground);
   font-size: 1rem;
 }
 
@@ -653,6 +666,9 @@ a.blog-section-button.internal {
   color: #fff;
   font-size: 1rem;
   font-weight: 600;
+  transition:
+    transform 0.12s ease,
+    background-color 0.15s ease;
 
   &:hover {
     background: var(--coffee-dark-hover);
@@ -726,7 +742,7 @@ a.blog-section-button.internal {
   padding: 0 0.75rem;
   border-radius: var(--button-radius);
   font-size: 1.18rem;
-  font-weight: 800;
+  font-weight: 600;
   text-align: center;
   transition:
     transform 0.18s ease,
@@ -820,7 +836,7 @@ a.blog-section-button.internal {
 }
 
 .gallery-empty {
-  color: var(--gray);
+  color: var(--muted-foreground);
 }
 
 .gallery-media-grid {
@@ -881,7 +897,7 @@ a.blog-section-button.internal {
 .scenery-summary {
   grid-column: 1 / -1;
   margin: -0.5rem 0 0;
-  color: var(--gray);
+  color: var(--muted-foreground);
 }
 
 .scenery-album {
@@ -963,7 +979,7 @@ body[data-slug^="gallery/scenery/"] {
   flex-shrink: 0;
   width: 34px;
   height: 34px;
-  color: var(--gray);
+  color: var(--muted-foreground);
   transition:
     transform 0.18s ease,
     color 0.18s ease;
@@ -997,7 +1013,7 @@ body[data-slug^="gallery/scenery/"] {
   gap: 0.8rem;
   border: 1px solid var(--blog-border);
   border-radius: 18px;
-  box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.035);
   background: var(--blog-surface);
   backdrop-filter: blur(18px);
 }
@@ -1006,14 +1022,15 @@ body[data-slug^="gallery/scenery/"] {
   margin-right: 0.2rem;
   color: var(--dark);
   font-size: 1.05rem;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .filter-button {
   position: relative;
   z-index: 11;
   appearance: none;
-  min-height: 2.35rem;
+  box-sizing: border-box;
+  min-height: 44px;
   padding: 0 0.95rem;
   display: inline-flex;
   align-items: center;
@@ -1027,6 +1044,23 @@ body[data-slug^="gallery/scenery/"] {
   font: 600 0.9rem/1.3 var(--bodyFont);
   cursor: pointer;
   pointer-events: auto;
+  transition:
+    transform 0.12s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+// Announce filtering without adding another visible row to the original layout.
+.blog-filter-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 .filter-button.active {
@@ -1053,8 +1087,8 @@ body[data-slug^="gallery/scenery/"] {
   border: 1px solid var(--blog-border);
   border-radius: 18px;
   box-shadow:
-    0 3px 8px rgba(0, 0, 0, 0.06),
-    0 14px 32px rgba(0, 0, 0, 0.1);
+    0 2px 8px rgba(0, 0, 0, 0.035),
+    0 10px 24px rgba(0, 0, 0, 0.045);
   background: var(--blog-surface-solid);
   transition:
     transform 0.18s ease,
@@ -1068,8 +1102,8 @@ body[data-slug^="gallery/scenery/"] {
 .blog-card:hover {
   transform: translateY(-0.18rem);
   box-shadow:
-    0 5px 12px rgba(0, 0, 0, 0.07),
-    0 20px 40px rgba(0, 0, 0, 0.13);
+    0 4px 12px rgba(0, 0, 0, 0.045),
+    0 14px 28px rgba(0, 0, 0, 0.065);
 }
 
 .blog-card-link {
@@ -1105,10 +1139,15 @@ body[data-slug^="gallery/scenery/"] {
 .blog-card-meta {
   margin-top: auto;
   padding-top: 1.1rem;
-  color: var(--gray);
+  color: var(--muted-foreground);
   font-size: 0.8rem;
   font-weight: 400;
   border-top: 1px solid var(--blog-border);
+}
+
+li.section-li > .section .meta {
+  color: var(--muted-foreground);
+  opacity: 1;
 }
 
 .blog-card-tags {
@@ -1149,7 +1188,7 @@ body[data-slug="about"] article {
   padding: 2rem;
   border: 1px solid var(--blog-border);
   border-radius: 8px;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.07);
+  box-shadow: 0 0.5rem 1.75rem rgba(0, 0, 0, 0.045);
   background: var(--blog-surface-solid);
   font-size: 1.1rem;
 }
@@ -1165,7 +1204,7 @@ body[data-slug="about"] .page > #quartz-body .center > .page-footer {
   border: 1px solid color-mix(in srgb, var(--blog-accent) 24%, var(--blog-border));
   border-top: 3px solid var(--blog-accent);
   border-radius: 8px;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.07);
+  box-shadow: 0 0.5rem 1.75rem rgba(0, 0, 0, 0.045);
   background: var(--blog-surface-solid);
 }
 
@@ -1191,7 +1230,7 @@ body:is(
   display: block;
   border: 1px solid color-mix(in srgb, var(--dark) 24%, var(--blog-border));
   border-radius: 8px;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.07);
+  box-shadow: 0 0.5rem 1.75rem rgba(0, 0, 0, 0.045);
   background: var(--blog-surface-solid);
 }
 
@@ -1226,6 +1265,52 @@ footer {
   display: none;
 }
 
+// A short press response complements hover on both touch and pointer devices.
+:is(.home-button, .blog-section-button, .filter-button, .back-home-card, .song-toggle):active {
+  transform: scale(0.98);
+  filter: brightness(0.96);
+}
+
+.blog-card:active {
+  transform: translateY(0);
+}
+
+.site-nav-link:active,
+.site-blog-link:active {
+  color: var(--coffee-ink);
+}
+
+.home-button:focus-visible {
+  outline: 2px solid var(--coffee-ink);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .home-button,
+  .blog-card,
+  .blog-section-button,
+  .filter-button,
+  .back-home-card,
+  .song-toggle,
+  .song-card,
+  a.coffee-card {
+    transition: none;
+  }
+
+  .home-button:hover,
+  .blog-card:hover,
+  .song-card:hover,
+  a.coffee-card:hover,
+  .blog-card:active,
+  :is(.home-button, .blog-section-button, .filter-button, .back-home-card, .song-toggle):active {
+    transform: none;
+  }
+}
+
 @media (max-width: 900px) {
   .home-hero h1 {
     font-size: 4.2rem;
@@ -1252,6 +1337,11 @@ footer {
     flex-direction: column;
     justify-content: center;
     gap: 0.55rem;
+  }
+
+  .site-blog-menu {
+    left: -3rem;
+    right: auto;
   }
 
   .page > #quartz-body .page-header > .popover-hint {

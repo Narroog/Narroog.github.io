@@ -87,12 +87,12 @@ body[data-slug="gallery/song/index"]:has(.song-grid)
 .song-number {
   font-family: var(--codeFont);
   font-size: 1.1rem;
-  color: var(--gray);
+  color: var(--muted-foreground);
 }
 
 .song-cover-label,
 .song-original {
-  color: var(--gray);
+  color: var(--muted-foreground);
   font-size: 0.9rem;
 }
 
@@ -211,13 +211,13 @@ input.song-seek::-moz-range-thumb {
   margin-top: 0.25rem;
   display: flex;
   justify-content: space-between;
-  color: var(--gray);
+  color: var(--muted-foreground);
   font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
 }
 .song-status {
   margin: 0.75rem 0 0;
-  color: var(--gray);
+  color: var(--muted-foreground);
   font-size: 0.85rem;
   &:empty {
     display: none;
@@ -262,7 +262,7 @@ body[data-slug^="gallery/song/"] article.song-detail {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: var(--gray);
+  color: var(--muted-foreground);
   font-size: 0.85rem;
   white-space: nowrap;
   input {
@@ -271,7 +271,7 @@ body[data-slug^="gallery/song/"] article.song-detail {
 }
 .song-lyrics-hint {
   margin: 0.75rem 0 1.5rem;
-  color: var(--gray);
+  color: var(--muted-foreground);
   font-size: 0.85rem;
 }
 .song-lyric-scroll {
@@ -293,7 +293,7 @@ button.song-lyric-line {
   border-radius: var(--button-radius);
   background: transparent;
   text-align: left;
-  color: var(--gray);
+  color: var(--muted-foreground);
   font: inherit;
   font-size: 1.1rem;
   line-height: 1.5;
@@ -314,7 +314,7 @@ button.song-lyric-line {
 .song-line-time {
   flex-shrink: 0;
   width: 2.5rem;
-  color: var(--gray);
+  color: var(--muted-foreground);
   font-size: 0.75rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;

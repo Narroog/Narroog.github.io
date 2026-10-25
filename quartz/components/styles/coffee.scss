@@ -146,7 +146,7 @@ body[data-slug^="gallery/coffee/"] article.coffee-detail {
 }
 .coffee-product {
   margin: 0.75rem 0 1.25rem;
-  color: var(--gray);
+  color: var(--muted-foreground);
   font-size: 0.9rem;
 }
 .coffee-rating-grid {
@@ -163,7 +163,7 @@ body[data-slug^="gallery/coffee/"] article.coffee-detail {
 .coffee-score > span {
   display: block;
   font-size: 0.8rem;
-  color: var(--gray);
+  color: var(--muted-foreground);
 }
 .coffee-score strong {
   display: block;
@@ -174,10 +174,10 @@ body[data-slug^="gallery/coffee/"] article.coffee-detail {
 .coffee-score small {
   font-size: 0.85rem;
   font-weight: 400;
-  color: var(--gray);
+  color: var(--muted-foreground);
 }
 .coffee-scale {
-  color: var(--gray);
+  color: var(--muted-foreground);
   font-size: 0.75rem;
   margin-bottom: 0;
 }
@@ -208,7 +208,7 @@ body[data-slug^="gallery/coffee/"] article.coffee-detail {
 }
 .coffee-facts dt,
 .coffee-packaging-flavor > span {
-  color: var(--gray);
+  color: var(--muted-foreground);
   font-size: 0.8rem;
 }
 .coffee-facts dd {

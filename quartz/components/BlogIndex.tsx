@@ -284,28 +284,35 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
         <h1 id="blog-title">{section.title}</h1>
       </div>
 
-      <div class="blog-filter" aria-label={`${section.label} tag filter`}>
+      <div class="blog-filter" role="group" aria-label={`${section.label}标签筛选`}>
         <span class="filter-label">标签筛选</span>
-        <a
+        <button
+          type="button"
           class="filter-button active"
-          href={resolveRelative(fileData.slug!, section.slug as FullSlug)}
           data-tag="all"
+          aria-pressed="true"
+          aria-controls="blog-posts"
         >
           全部
-        </a>
+        </button>
         {tags.map((tag) => (
-          <a
+          <button
+            type="button"
             class="filter-button"
-            href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
             data-tag={tag}
             data-tag-color={getTagColor(tag)}
+            aria-pressed="false"
+            aria-controls="blog-posts"
           >
             #{tag}
-          </a>
+          </button>
         ))}
+        <span class="blog-filter-status" role="status" aria-live="polite" aria-atomic="true">
+          全部文章，共 {posts.length} 篇
+        </span>
       </div>
 
-      <div class="blog-grid">
+      <div class="blog-grid" id="blog-posts">
         {section.empty && posts.length === 0 && <p>{section.empty}</p>}
         {posts.map((post) => {
           const postTags = post.frontmatter?.tags ?? []
@@ -349,17 +356,23 @@ function setupBlogFilters() {
   filters.forEach((filter) => {
     if (filter.dataset.blogFilterReady === "true") return
     filter.dataset.blogFilterReady = "true"
-    filter.addEventListener("click", (event) => {
-      event.preventDefault()
+    filter.addEventListener("click", () => {
       const tag = filter.getAttribute("data-tag")
-      filters.forEach((button) => button.classList.remove("active"))
-      filter.classList.add("active")
+      filters.forEach((button) => {
+        const selected = button === filter
+        button.classList.toggle("active", selected)
+        button.setAttribute("aria-pressed", String(selected))
+      })
 
+      let visibleCount = 0
       cards.forEach((card) => {
         const tags = (card.getAttribute("data-tags") ?? "").split(" ")
         const visible = tag === "all" || tags.includes(tag ?? "")
         card.classList.toggle("hidden", !visible)
+        if (visible) visibleCount++
       })
+      const status = document.querySelector(".blog-filter-status")
+      if (status) status.textContent = (tag === "all" ? "全部文章" : tag) + "，共 " + visibleCount + " 篇"
     })
   })
 }
