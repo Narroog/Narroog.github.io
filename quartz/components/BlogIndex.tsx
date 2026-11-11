@@ -105,7 +105,8 @@ const BlogIndex: QuartzComponent = (props: QuartzComponentProps) => {
           <h1 id="gallery-title">Gallery</h1>
         </div>
         <div class="gallery-exhibition">
-          {["Coffee", "Scenery", "Song"].map((category) => {
+          {/* Song is temporarily hidden from the Gallery overview. */}
+          {["Coffee", "Scenery"].map((category) => {
             const prefix = `gallery/${category.toLowerCase()}/`
             if (category === "Coffee")
               return (

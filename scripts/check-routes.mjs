@@ -109,7 +109,12 @@ for (const [slug, page] of Object.entries(index)) {
 }
 
 const songs = Object.keys(index).filter((slug) => /^gallery\/song\/[^/]+\/index$/.test(slug))
-for (const slug of ["gallery/index", "gallery/song/index"]) {
+const gallery = readPage("gallery/index")
+report(
+  !gallery.includes('id="gallery-song"') && !gallery.includes('class="song-card"'),
+  "Song must remain hidden from the Gallery overview",
+)
+for (const slug of ["gallery/song/index"]) {
   report(
     (readPage(slug).match(/class="song-card"/g) ?? []).length === songs.length,
     `Incorrect song card count: ${slug}`,
