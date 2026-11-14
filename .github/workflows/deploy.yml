@@ -33,7 +33,10 @@ jobs:
         run: npm ci
 
       - name: Build Quartz
-        run: npm run quartz -- build
+        env:
+          UMAMI_WEBSITE_ID: ${{ vars.UMAMI_WEBSITE_ID }}
+          UMAMI_SCRIPT_URL: ${{ vars.UMAMI_SCRIPT_URL }}
+        run: npm run build
 
       - name: Check published routes
         run: npm run check:routes
@@ -41,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: public
+          path: Website/public
 
   deploy:
     needs: build

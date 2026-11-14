@@ -17,6 +17,11 @@
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
   },
-  "include": ["**/*.ts", "**/*.tsx", "./package.json"],
-  "exclude": ["build/**/*.d.ts"]
+  "include": ["Website/**/*.ts", "Website/**/*.tsx", "./package.json"],
+  "exclude": [
+    "Website/.quartz-cache",
+    "Website/quartz/.quartz-cache",
+    "Website/public",
+    "Website/archive"
+  ]
 }

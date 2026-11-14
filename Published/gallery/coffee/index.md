@@ -1,0 +1,16 @@
+---
+aliases: ["05-Gallery/Coffee/index"]
+title: Coffee
+description: 咖啡记录。
+draft: false
+---
+
+记录喝过的咖啡豆、风味感受与个人评分。
+
+| 咖啡豆                                                | 品牌        | 我的评分 |
+| ----------------------------------------------------- | ----------- | -------- |
+| [哥伦比亚麦德林 · 睡美人](colombia-medellin/index.md) | 白鲸咖啡    | 4.5 / 5  |
+| [深烘埃塞 · 草莓舒芙蕾](ethiopia-dark-roast/index.md) | GRAND CRU   | 4.5 / 5  |
+| [铁匠拼配](blacksmith-blend/index.md)                 | BROW COFFEE | 4 / 5    |
+
+各款档案包含基础信息、我的感受与评级。评分采用 5 分制，支持半分。
